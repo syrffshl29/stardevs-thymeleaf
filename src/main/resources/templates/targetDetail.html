@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detail Target Tabungan</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="container-target-detail">
+    <h2>Detail Target Tabungan</h2>
+    <h3 th:text="${target.nama}"></h3>
+    <p><b>Harga:</b> Rp <span th:text="${#numbers.formatInteger(target.nominalTarget, 0, 'id-ID')}"></span></p>
+    <p><b>Deadline:</b> <span th:text="${#dates.format(target.deadline, 'dd MMMM yyyy')}"></span></p>
+    <p><b>Dana Masuk:</b> Rp <span th:text="${#numbers.formatInteger(target.nominalDanaMasuk, 0, 'id-ID')}"></span></p>
+
+    <p style="color: blue;"><b>Progress:</b> <span th:text="${target.progress} + '%'"></span></p>
+    <p style="color: red;"><b>Progress:</b> <span th:text="${100 - target.progress} + '%'"></span></p>
+
+    <div class="btn-group">
+        <a th:href="@{'/targets/add-funds/' + ${target.id}}" class="btn-success">Tambah Dana</a>
+        <a th:href="@{'/targets/withdraw-funds/' + ${target.id}}" class="btn-danger">Tarik Dana</a>
+        <a th:href="@{'/targets/edit/' + ${target.id}}" class="btn-warning">Edit Target</a>
+        <a th:href="@{'/targets/delete/' + ${target.id}}" class="btn-delete" onclick="return confirm('Yakin hapus target?');">Hapus Target</a>
+    </div>
+
+    <div class="transaction-history">
+        <h4>Riwayat Transaksi :</h4>
+        <ul>
+            <li th:each="trx, iterStat : ${transactions}"
+                th:text="${iterStat.count} + '. Setoran ' + ${#dates.format(trx.date, 'dd-MM-yyyy')} + ' = Rp ' + #numbers.formatInteger(trx.nominal, 0, 'id-ID')}"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

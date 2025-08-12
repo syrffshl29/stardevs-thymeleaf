@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/contoh")
 public class ContohController {
 
     @GetMapping
     public String contoh(Model model){
         model.addAttribute("nama","Tabungin");
-        return "contoh";
+        return "Home";
     }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Target Tabungan - STAR Devs</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="container-target-list">
+    <h2>STAR Devs</h2>
+    <h3>Daftar Target Tabungan</h3>
+
+    <form method="get" th:action="@{/targets}">
+        <label>Sorting</label>
+        <select name="sortBy" onchange="this.form.submit()">
+            <option th:value="nama" th:selected="${sortBy == 'nama'}">Nama</option>
+            <option th:value="deadline" th:selected="${sortBy == 'deadline'}">Deadline</option>
+            <option th:value="progress" th:selected="${sortBy == 'progress'}">Progress</option>
+        </select>
+    </form>
+
+    <a href="/targets/add" class="btn-primary">+ Add data</a>
+    <span class="badge" th:text="${targets.size()}"></span>
+
+    <div class="target-cards">
+        <div class="target-card" th:each="target : ${targets}">
+            <h4 th:text="${target.nama}"></h4>
+            <p><b>Target:</b> Rp <span th:text="${#numbers.formatInteger(target.nominalTarget, 0, 'id-ID')}"></span></p>
+            <p><b>Deadline:</b> <span th:text="${#dates.format(target.deadline, 'dd MMMM yyyy')}"></span></p>
+            <p><b>Progress:</b> <span th:text="${target.progress} + '%'"></span> (Rp <span th:text="${#numbers.formatInteger(target.progressNominal, 0, 'id-ID')}"></span>)</p>
+            <a th:href="@{'/targets/detail/' + ${target.id}}" class="btn-warning">Detail</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

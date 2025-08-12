@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.3</version>
+        <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -74,7 +74,7 @@
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-jdbc</artifactId>
-            <version>3.4.1</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/cn.apiclub.tool/simplecaptcha -->
@@ -141,6 +141,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>saf-fe</finalName>
+        <finalName>stardevs-fe</finalName>
     </build>
 </project>

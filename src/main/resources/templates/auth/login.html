@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login STAR Devs</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="container-login">
+    <h2>STAR Devs</h2>
+    <h3>Login</h3>
+    <form th:action="@{/login}" method="post" th:object="${loginDto}">
+        <div>
+            <label>Username</label>
+            <input type="text" th:field="*{username}" placeholder="Masukkan username" />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" th:field="*{password}" placeholder="Masukkan password" />
+        </div>
+        <button type="submit" class="btn-primary">LOGIN</button>
+    </form>
+    <div class="btn-group">
+        <a href="/forgot-password" class="btn-warning">LUPA PASSWORD</a>
+        <a href="/register" class="btn-warning">DAFTAR</a>
+    </div>
+</div>
+</body>
+</html>
