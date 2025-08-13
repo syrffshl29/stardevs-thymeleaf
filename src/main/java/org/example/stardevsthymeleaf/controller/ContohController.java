@@ -12,6 +12,6 @@ public class ContohController {
     @GetMapping
     public String contoh(Model model){
         model.addAttribute("nama","Tabungin");
-        return "Home";
+        return "contoh";
     }
 }

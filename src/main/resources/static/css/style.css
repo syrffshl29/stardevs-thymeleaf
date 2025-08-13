@@ -1,0 +1,247 @@
+/* Reset dan dasar */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5e9b0; /* warna dasar cream */
+    color: #333;
+    padding: 20px;
+}
+
+/* Container utama */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    background: #fff9e5;
+    border-radius: 10px;
+    padding: 30px 25px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    border: 3px solid #dcc27d;
+}
+
+/* Judul utama */
+h1, h2 {
+    color: #1c5d84;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Judul subtitle */
+.subtitle {
+    color: #bf8b35;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Input form */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1.5px solid #ddd3a0;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fffef3;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #1c5d84;
+    background-color: #f9f9f2;
+}
+
+/* Textarea khusus */
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Tombol utama */
+button, .btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Tombol biru */
+.btn-blue {
+    background-color: #2a85d7;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-blue:hover {
+    background-color: #1c5d84;
+}
+
+/* Tombol orange */
+.btn-orange {
+    background: linear-gradient(90deg, #df7d1e, #f07b21);
+    color: white;
+    width: 48%;
+    margin-right: 4%;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.btn-orange:last-child {
+    margin-right: 0;
+}
+
+.btn-orange:hover {
+    background: linear-gradient(90deg, #b75813, #cc5a14);
+}
+
+/* Tombol lain (Tambah, Tarik, Edit, Hapus) */
+.btn-green {
+    background-color: #4caf50;
+}
+
+.btn-green:hover {
+    background-color: #3a8d37;
+}
+
+.btn-red {
+    background-color: #d9534f;
+}
+
+.btn-red:hover {
+    background-color: #b13430;
+}
+
+.btn-yellow {
+    background-color: #f0c419;
+    color: #3a3a3a;
+}
+
+.btn-yellow:hover {
+    background-color: #c4a014;
+}
+
+/* Card target tabungan */
+.saving-card {
+    background-color: #fff8e1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    border: 1.5px solid #f2d884;
+    position: relative;
+}
+
+.saving-card h3 {
+    margin-bottom: 10px;
+    color: #1c5d84;
+}
+
+.saving-card p {
+    font-size: 0.95rem;
+    margin: 4px 0;
+}
+
+.saving-card .btn-detail {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: #e07800;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.saving-card .btn-detail:hover {
+    background-color: #c16000;
+}
+
+/* Progress bar */
+.progress-bar-container {
+    background-color: #ffd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 12px 0;
+    height: 18px;
+    border: 1.5px solid #f2d884;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #2a85d7;
+    transition: width 0.5s ease;
+}
+
+/* Teks progress warna merah (misal progress negatif) */
+.progress-red {
+    color: #d9534f;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* Riwayat transaksi */
+.transaction-list {
+    background-color: #fff8e1;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border: 1.5px solid #f2d884;
+    margin-top: 15px;
+}
+
+/* Sorting & Add Data */
+.sort-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sort-add select {
+    max-width: 150px;
+}
+
+.sort-add .btn-add {
+    background-color: #2a85d7;
+    padding: 8px 16px;
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sort-add .btn-add:hover {
+    background-color: #1c5d84;
+}

@@ -2,7 +2,7 @@ package org.example.stardevsthymeleaf.utils;
 
 import cn.apiclub.captcha.Captcha;
 import org.example.stardevsthymeleaf.config.OtherConfig;
-import org.example.stardevsthymeleaf.dto.LoginDTO;
+import org.example.stardevsthymeleaf.dto.validation.LoginDto;
 import org.example.stardevsthymeleaf.security.BcryptImpl;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,16 +17,16 @@ import java.util.regex.Pattern;
 public class GlobalFunction {
 public static final Integer [] SIZE_COMPONENT = {2,3,5,10,15,20,30};
 
-    public static void getCaptchaLogin(LoginDTO loginDTO){
+    public static void getCaptchaLogin(LoginDto loginDto){
         Captcha captcha = CaptchaUtils.createCaptcha(200,50);
         String answer = captcha.getAnswer();
         if(OtherConfig.getEnableAutomationTesting().equals("y")){
-            loginDTO.setHiddenCaptcha(answer);
+            loginDto.setHiddenCaptcha(answer);
         }else {
-            loginDTO.setHiddenCaptcha(BcryptImpl.hash(answer));
+            loginDto.setHiddenCaptcha(BcryptImpl.hash(answer));
         }
-        loginDTO.setCaptcha("");
-        loginDTO.setRealCaptcha(CaptchaUtils.encodeCaptcha(captcha));
+        loginDto.setCaptcha("");
+        loginDto.setRealCaptcha(CaptchaUtils.encodeCaptcha(captcha));
     }
 
     public static void matchingPattern(String value,String regex,

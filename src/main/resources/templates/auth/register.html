@@ -8,29 +8,42 @@
 <div class="container-register">
     <h2>STAR Devs</h2>
     <h3>Registrasi</h3>
-    <form th:action="@{/register}" method="post" th:object="${registerDto}">
+    <form th:action="@{/auth/register}" method="post" enctype="multipart/form-data">
         <div>
-            <label>Nama</label>
-            <input type="text" th:field="*{fullName}" placeholder="Masukkan nama lengkap" />
+            <label>Nama Lengkap</label>
+            <input type="text" name="namaLengkap" placeholder="Masukkan nama lengkap" />
         </div>
         <div>
             <label>Username</label>
-            <input type="text" th:field="*{username}" placeholder="Masukkan username" />
+            <input type="text" name="username" placeholder="Masukkan username" />
         </div>
         <div>
             <label>Password</label>
-            <input type="password" th:field="*{password}" placeholder="Masukkan password" />
+            <input type="password" name="password" placeholder="Masukkan password" />
         </div>
         <div>
             <label>Email</label>
-            <input type="email" th:field="*{email}" placeholder="Masukkan email" />
+            <input type="email" name="email" placeholder="Masukkan email" />
         </div>
         <div>
             <label>No.Telp</label>
-            <input type="text" th:field="*{phone}" placeholder="Masukkan nomor telepon" />
+            <input type="text" name="noHp" placeholder="Masukkan nomor telepon" />
+        </div>
+        <div>
+            <label>Alamat</label>
+            <textarea name="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+        </div>
+        <div>
+            <label>Tanggal Lahir</label>
+            <input type="date" name="tanggalLahir" />
+        </div>
+        <div>
+            <label>Foto</label>
+            <input type="file" name="file" />
         </div>
         <button type="submit" class="btn-primary">DAFTAR</button>
     </form>
+
 </div>
 </body>
 </html>

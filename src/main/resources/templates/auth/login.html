@@ -2,13 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login STAR Devs</title>
-    <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
 <div class="container-login">
-    <h2>STAR Devs</h2>
+    <h2>
+        <a th:href="@{/}" style="text-decoration: none; color: inherit; cursor: pointer;">
+            STAR DEVS
+        </a>
+    </h2>
     <h3>Login</h3>
-    <form th:action="@{/login}" method="post" th:object="${loginDto}">
+    <form th:action="@{/auth/login}" method="post" th:object="${data}">
         <div>
             <label>Username</label>
             <input type="text" th:field="*{username}" placeholder="Masukkan username" />

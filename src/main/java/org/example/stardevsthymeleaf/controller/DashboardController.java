@@ -3,7 +3,7 @@ package org.example.stardevsthymeleaf.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.example.stardevsthymeleaf.config.OtherConfig;
-import org.example.stardevsthymeleaf.dto.LoginDTO;
+import org.example.stardevsthymeleaf.dto.validation.LoginDto;
 import org.example.stardevsthymeleaf.utils.GlobalFunction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +16,10 @@ import org.springframework.web.context.request.WebRequest;
 @RequestMapping("/")
 public class DashboardController {
 
-    @GetMapping
+    @GetMapping("Login")
     public String index(Model model){
 
-        LoginDTO loginDTO = new LoginDTO();
+        LoginDto loginDTO = new LoginDto();
         GlobalFunction.getCaptchaLogin(loginDTO);
         loginDTO.setUsername("syarifaf29");
         if(OtherConfig.getEnableAutomationTesting().equals("y")){
@@ -29,7 +29,7 @@ public class DashboardController {
         return "auth/login";
     }
 
-    @GetMapping("/Home")
+    @GetMapping("/")
     public String home(Model model, WebRequest request){
 
         String username = (String) request.getAttribute("USR_NAME",1);
@@ -40,10 +40,10 @@ public class DashboardController {
         return "home";
     }
 
-    @GetMapping("/regis")
+    @GetMapping("/register")
     public String regis(){
 
-        return "auth/regis";
+        return "auth/register";
     }
 
     @GetMapping("/logout")
