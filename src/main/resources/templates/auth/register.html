@@ -8,42 +8,60 @@
 <div class="container-register">
     <h2>STAR Devs</h2>
     <h3>Registrasi</h3>
-    <form th:action="@{/auth/register}" method="post" enctype="multipart/form-data">
-        <div>
-            <label>Nama Lengkap</label>
-            <input type="text" name="namaLengkap" placeholder="Masukkan nama lengkap" />
-        </div>
+    <form th:action="@{/auth/register}" method="post" enctype="multipart/form-data" id="formRegis">
+
         <div>
             <label>Username</label>
-            <input type="text" name="username" placeholder="Masukkan username" />
+            <input type="text" name="username" id="username" th:value="${username}" placeholder="Masukkan username" />
+            <p class="error" id="usernameMessage"></p>
         </div>
+
         <div>
             <label>Password</label>
-            <input type="password" name="password" placeholder="Masukkan password" />
+            <input type="password" name="password" id="password" th:value="${password}" placeholder="Masukkan password" />
+            <p class="error" id="passwordMessage"></p>
         </div>
+
+        <div>
+            <label>Nama Lengkap</label>
+            <input type="text" name="namaLengkap" id="namaLengkap" th:value="${namaLengkap}" placeholder="Masukkan nama lengkap" />
+            <p class="error" id="namaLengkapMessage"></p>
+        </div>
+
         <div>
             <label>Email</label>
-            <input type="email" name="email" placeholder="Masukkan email" />
+            <input type="email" name="email" id="email" th:value="${email}" placeholder="Masukkan email" />
+            <p class="error" id="emailMessage"></p>
         </div>
+
         <div>
             <label>No.Telp</label>
-            <input type="text" name="noHp" placeholder="Masukkan nomor telepon" />
+            <input type="text" name="noHp" id="noHp" th:value="${noHp}" placeholder="Masukkan nomor telepon" />
+            <p class="error" id="noHpMessage"></p>
         </div>
+
         <div>
             <label>Alamat</label>
-            <textarea name="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+            <textarea name="alamat" id="alamat" th:text="${alamat}" placeholder="Masukkan alamat lengkap"></textarea>
+            <p class="error" id="alamatMessage"></p>
         </div>
+
         <div>
             <label>Tanggal Lahir</label>
-            <input type="date" name="tanggalLahir" />
+            <input type="date" name="tanggalLahir" id="tanggalLahir" th:value="${tanggalLahir}" />
+            <p class="error" id="tanggalLahirMessage"></p>
         </div>
+
         <div>
             <label>Foto</label>
-            <input type="file" name="file" />
+            <input type="file" name="file" id="file" />
         </div>
-        <button type="submit" class="btn-primary">DAFTAR</button>
-    </form>
 
+        <button type="submit" class="btn-blue primary">DAFTAR</button>
+        <button type="button" class="btn-blue primary" onclick="window.location.href='/Login'">Login</button>
+    </form>
 </div>
+
+<script type="text/javascript" th:src="@{/js/register.js}"></script>
 </body>
 </html>

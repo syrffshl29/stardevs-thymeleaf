@@ -26,5 +26,5 @@ public interface AuthService {
     public ResponseEntity<Object> registrationUpload(@PathVariable Long id,@RequestPart MultipartFile file);
 
     @PostMapping("/verify-register")
-    public ResponseEntity<Object> verifyRegis(@RequestBody VerifyRegisterDto verifyRegisterDto);
+    public ResponseEntity<Object> verifyRegister(@RequestBody VerifyRegisterDto verifyRegisterDto);
 }
