@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Target Tabungan</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="container">
+    <h2>Edit Target Tabungan</h2>
+    <form th:action="@{'/target/' + ${ids}}" method="post" th:object="${data}">
+        <label>Nama Target</label>
+        <input type="text" th:field="*{targetName}" placeholder="Nama target" required />
+        <div th:if="${#fields.hasErrors('targetName')}" th:errors="*{targetName}"></div>
+
+        <label>Nominal Target</label>
+        <input type="number" th:field="*{jumlahDataTarget}" placeholder="Nominal" required />
+        <div th:if="${#fields.hasErrors('jumlahDataTarget')}" th:errors="*{jumlahDataTarget}"></div>
+
+        <label>Deadline</label>
+        <input type="date" th:field="*{tanggalSelesaiTarget}" required />
+        <div th:if="${#fields.hasErrors('tanggalSelesaiTarget')}" th:errors="*{tanggalSelesaiTarget}"></div>
+
+        <label>Deskripsi</label>
+        <textarea th:field="*{deskripsi}" placeholder="Deskripsi"></textarea>
+        <div th:if="${#fields.hasErrors('deskripsi')}" th:errors="*{deskripsi}"></div>
+
+        <button type="submit" class="btn-primary">Update</button>
+        <a th:href="@{/target}" class="btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>

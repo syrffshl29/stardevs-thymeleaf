@@ -25,8 +25,7 @@
     <div class="transaction-history">
         <h4>Riwayat Transaksi :</h4>
         <ul>
-            <li th:each="trx, iterStat : ${transactions}"
-                th:text="${iterStat.count} + '. Setoran ' + ${#dates.format(trx.date, 'dd-MM-yyyy')} + ' = Rp ' + #numbers.formatInteger(trx.nominal, 0, 'id-ID')}"></li>
+            <li th:each="trx, iterStat : ${transactions}" th:text="${iterStat.count} + '. Setoran ' + ${#dates.format(trx.date, 'dd-MM-yyyy')} + ' = Rp ' + #numbers.formatInteger(trx.nominal, 0, 'id-ID')"></li>
         </ul>
     </div>
 </div>

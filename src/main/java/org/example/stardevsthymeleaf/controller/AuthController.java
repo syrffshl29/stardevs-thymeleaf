@@ -84,7 +84,7 @@ public class AuthController {
 
         model.addAttribute("MENU_NAVBAR", menuNavBar);
         model.addAttribute("USR_NAME", username);
-        return "/targetList";
+        return "target";
     }
 
     /** REGISTER */

@@ -5,6 +5,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
     <title>HOME</title>
 </head>
+<div class = "container">
 <body>
 <h1 style="color: green">HOME</h1>
 <nav>
@@ -13,9 +14,10 @@
         <th:block th:if="${USR_NAME != null}" th:utext="${MENU_NAVBAR}"></th:block>
         <li><a th:href="@{/logout}" th:if="${USR_NAME != null}" >Logout</a></li>
         <li><a th:href="@{/Login}" th:if="${USR_NAME == null}" >Login</a></li>
-        <li><a th:href="@{/contactus}">Contact Us</a></li>
+        <li><a th:href="@{/target}">Target Tabungan</a></li>
         <li><a th:href="@{/promo}">Promo</a></li>
     </ul>
 </nav>
 </body>
+</div>
 </html>

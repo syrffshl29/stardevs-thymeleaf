@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Target Tabungan</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<div class="container">
+    <h2>Daftar Target Tabungan</h2>
+    <a th:href="@{/target/a}" class="btn-primary">Tambah Target Baru</a>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Target</th>
+            <th>Nominal Target</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="t, iterStat : ${targetList}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${t.targetName}"></td>
+            <td th:text="${t.jumlahDataTarget}"></td>
+            <td th:text="${t.tanggalSelesaiTarget}"></td>
+            <td th:text="${t.statusTarget}"></td>
+            <td>
+                <a th:href="@{'/target/e/' + ${t.id}}" class="btn-edit">Edit</a>
+                <form th:action="@{'/target/delete/' + ${t.id}}" method="post" style="display:inline;">
+                    <button type="submit" class="btn-delete">Hapus</button>
+                </form>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(targetList)}">
+            <td colspan="6">Belum ada target tabungan.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
