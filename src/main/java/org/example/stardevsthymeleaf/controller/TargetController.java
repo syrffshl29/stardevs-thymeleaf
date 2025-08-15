@@ -130,7 +130,7 @@ public class TargetController {
     /** Update target tabungan */
     @PostMapping("/{id}")
     public String edit(@Valid @ModelAttribute("data") ValTargetTabunganDto valDto,
-                       BindingResult bindingResult,
+                        BindingResult bindingResult,
                        Model model,
                        @PathVariable Long id,
                        WebRequest request) {
