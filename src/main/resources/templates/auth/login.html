@@ -1,54 +1,54 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Login STAR Devs</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" />
-</head>
-<body>
-<div class="container">
-    <h2>
-        <a th:href="@{/}" style="text-decoration: none; color: inherit; cursor: pointer;">
-            STAR DEVS
-        </a>
-    </h2>
-    <h3>Login</h3>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Login STAR Devs</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <h2>-->
+<!--        <a th:href="@{/}" style="text-decoration: none; color: inherit; cursor: pointer;">-->
+<!--            STAR DEVS-->
+<!--        </a>-->
+<!--    </h2>-->
+<!--    <h3>Login</h3>-->
 
-    <form th:action="@{/auth/login}" method="post" th:object="${data}">
-        <!-- Username -->
-        <div>
-            <label>Username</label>
-            <input type="text" th:field="*{username}" placeholder="Masukkan username" />
-            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></div>
-        </div>
+<!--    <form th:action="@{/auth/login}" method="post" th:object="${data}">-->
+<!--        &lt;!&ndash; Username &ndash;&gt;-->
+<!--        <div>-->
+<!--            <label>Username</label>-->
+<!--            <input type="text" th:field="*{username}" placeholder="Masukkan username" />-->
+<!--            <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></div>-->
+<!--        </div>-->
 
-        <!-- Password -->
-        <div>
-            <label>Password</label>
-            <input type="password" th:field="*{password}" placeholder="Masukkan password" />
-            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></div>
-        </div>
+<!--        &lt;!&ndash; Password &ndash;&gt;-->
+<!--        <div>-->
+<!--            <label>Password</label>-->
+<!--            <input type="password" th:field="*{password}" placeholder="Masukkan password" />-->
+<!--            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></div>-->
+<!--        </div>-->
 
-        <!-- Captcha -->
-        <div>
-            <label>Captcha</label>
-            <div style="display:flex; align-items:center;">
-                <input type="text" th:field="*{captcha}" placeholder="Masukkan captcha" style="flex:1;"/>
-                <img th:src="@{/captcha-image}" alt="Captcha" style="margin-left:10px; border:1px solid #ccc;"/>
-            </div>
-            <input type="hidden" th:field="*{hiddenCaptcha}" />
-            <div th:if="${captchaMessage}" class="error" th:text="${captchaMessage}"></div>
-        </div>
+<!--        &lt;!&ndash; Captcha &ndash;&gt;-->
+<!--        <div>-->
+<!--            <label>Captcha</label>-->
+<!--            <div style="display:flex; align-items:center;">-->
+<!--                <input type="text" th:field="*{captcha}" placeholder="Masukkan captcha" style="flex:1;"/>-->
+<!--                <img th:src="@{/captcha-image}" alt="Captcha" style="margin-left:10px; border:1px solid #ccc;"/>-->
+<!--            </div>-->
+<!--            <input type="hidden" th:field="*{hiddenCaptcha}" />-->
+<!--            <div th:if="${captchaMessage}" class="error" th:text="${captchaMessage}"></div>-->
+<!--        </div>-->
 
-        <!-- Submit -->
-        <button type="submit" class="btn-primary">LOGIN</button>
+<!--        &lt;!&ndash; Submit &ndash;&gt;-->
+<!--        <button type="submit" class="btn-primary">LOGIN</button>-->
 
-        <div th:if="${notif}" class="error" th:text="${notif}" style="margin-top:10px;"></div>
-    </form>
+<!--        <div th:if="${notif}" class="error" th:text="${notif}" style="margin-top:10px;"></div>-->
+<!--    </form>-->
 
-    <div class="btn-group">
-        <a href="/forgot-password" class="btn-warning">LUPA PASSWORD</a>
-        <a href="/register" class="btn-warning">DAFTAR</a>
-    </div>
-</div>
-</body>
-</html>
+<!--    <div class="btn-group">-->
+<!--        <a href="/forgot-password" class="btn-warning">LUPA PASSWORD</a>-->
+<!--        <a href="/register" class="btn-warning">DAFTAR</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

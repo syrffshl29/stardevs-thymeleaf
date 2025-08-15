@@ -1,77 +1,77 @@
-package org.example.stardevsthymeleaf.dto.response;
-
-public class RespTransactionDto{
-
-    private Long id;
-    private String jenisTransaksi;
-    private Double jumlahTransaksi;
-    private String metodePembayaran;
-    private String statusTransaksi;
-    private String keterangan;
-    private String username;
-    private String targetName;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getJenisTransaksi() {
-        return jenisTransaksi;
-    }
-
-    public void setJenisTransaksi(String jenisTransaksi) {
-        this.jenisTransaksi = jenisTransaksi;
-    }
-
-    public Double getJumlahTransaksi() {
-        return jumlahTransaksi;
-    }
-
-    public void setJumlahTransaksi(Double jumlahTransaksi) {
-        this.jumlahTransaksi = jumlahTransaksi;
-    }
-
-    public String getMetodePembayaran() {
-        return metodePembayaran;
-    }
-
-    public void setMetodePembayaran(String metodePembayaran) {
-        this.metodePembayaran = metodePembayaran;
-    }
-
-    public String getStatusTransaksi() {
-        return statusTransaksi;
-    }
-
-    public void setStatusTransaksi(String statusTransaksi) {
-        this.statusTransaksi = statusTransaksi;
-    }
-
-    public String getKeterangan() {
-        return keterangan;
-    }
-
-    public void setKeterangan(String keterangan) {
-        this.keterangan = keterangan;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getTargetName() {
-        return targetName;
-    }
-
-    public void setTargetName(String targetName) {
-        this.targetName = targetName;
-    }
-}
+//package org.example.stardevsthymeleaf.dto.response;
+//
+//public class RespTransactionDto{
+//
+//    private Long id;
+//    private String jenisTransaksi;
+//    private Double jumlahTransaksi;
+//    private String metodePembayaran;
+//    private String statusTransaksi;
+//    private String keterangan;
+//    private String username;
+//    private String targetName;
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getJenisTransaksi() {
+//        return jenisTransaksi;
+//    }
+//
+//    public void setJenisTransaksi(String jenisTransaksi) {
+//        this.jenisTransaksi = jenisTransaksi;
+//    }
+//
+//    public Double getJumlahTransaksi() {
+//        return jumlahTransaksi;
+//    }
+//
+//    public void setJumlahTransaksi(Double jumlahTransaksi) {
+//        this.jumlahTransaksi = jumlahTransaksi;
+//    }
+//
+//    public String getMetodePembayaran() {
+//        return metodePembayaran;
+//    }
+//
+//    public void setMetodePembayaran(String metodePembayaran) {
+//        this.metodePembayaran = metodePembayaran;
+//    }
+//
+//    public String getStatusTransaksi() {
+//        return statusTransaksi;
+//    }
+//
+//    public void setStatusTransaksi(String statusTransaksi) {
+//        this.statusTransaksi = statusTransaksi;
+//    }
+//
+//    public String getKeterangan() {
+//        return keterangan;
+//    }
+//
+//    public void setKeterangan(String keterangan) {
+//        this.keterangan = keterangan;
+//    }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public String getTargetName() {
+//        return targetName;
+//    }
+//
+//    public void setTargetName(String targetName) {
+//        this.targetName = targetName;
+//    }
+//}

@@ -1,45 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/style.css"/>
-    <title>Verify Register</title>
-</head>
-<body>
-<h1 style="color: blue; text-align: center;">Masukkan OTP</h1>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="/css/style.css"/>-->
+<!--    <title>Verify Register</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 style="color: blue; text-align: center;">Masukkan OTP</h1>-->
 
-<!-- Notifikasi -->
-<div th:if="${notif != null}" class="error-box error-danger">
-    <p style="text-align: center; color: green; font-weight: bolder; font-size: 2rem;"
-       th:utext="${notif}"></p>
-</div>
-<!-- Debug OTP (hanya untuk testing) -->
-<div th:if="${data.otp != null}" style="color:red; text-align:center; margin-bottom: 10px;">
-    OTP Debug: <span th:text="${data.otp}"></span>
-</div>
+<!--&lt;!&ndash; Notifikasi &ndash;&gt;-->
+<!--<div th:if="${notif != null}" class="error-box error-danger">-->
+<!--    <p style="text-align: center; color: green; font-weight: bolder; font-size: 2rem;"-->
+<!--       th:utext="${notif}"></p>-->
+<!--</div>-->
+<!--&lt;!&ndash; Debug OTP (hanya untuk testing) &ndash;&gt;-->
+<!--<div th:if="${data.otp != null}" style="color:red; text-align:center; margin-bottom: 10px;">-->
+<!--    OTP Debug: <span th:text="${data.otp}"></span>-->
+<!--</div>-->
 
-<form th:object="${data}" th:action="@{/auth/verify-register}" method="POST" id="formVerifyRegister">
+<!--<form th:object="${data}" th:action="@{/auth/verify-register}" method="POST" id="formVerifyRegister">-->
 
-    <!-- Input OTP -->
-    <div>
-        <label for="otp">Kode OTP:</label>
-        <input type="text" id="otp" th:field="*{otp}" placeholder="Masukkan OTP" required />
+<!--    &lt;!&ndash; Input OTP &ndash;&gt;-->
+<!--    <div>-->
+<!--        <label for="otp">Kode OTP:</label>-->
+<!--        <input type="text" id="otp" th:field="*{otp}" placeholder="Masukkan OTP" required />-->
 
-        <!-- Error OTP -->
-        <ul>
-            <li th:each="err : ${#fields.errors('otp')}" th:text="${err}" class="error"></li>
-        </ul>
-    </div>
+<!--        &lt;!&ndash; Error OTP &ndash;&gt;-->
+<!--        <ul>-->
+<!--            <li th:each="err : ${#fields.errors('otp')}" th:text="${err}" class="error"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
 
-    <!-- Hidden email -->
-    <input type="hidden" th:field="*{email}" />
+<!--    &lt;!&ndash; Hidden email &ndash;&gt;-->
+<!--    <input type="hidden" th:field="*{email}" />-->
 
-    <!-- Submit button -->
-    <div>
-        <button type="submit">SUBMIT</button>
-    </div>
-</form>
+<!--    &lt;!&ndash; Submit button &ndash;&gt;-->
+<!--    <div>-->
+<!--        <button type="submit">SUBMIT</button>-->
+<!--    </div>-->
+<!--</form>-->
 
-<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
-</body>
-</html>
+<!--<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>-->
+<!--</body>-->
+<!--</html>-->
