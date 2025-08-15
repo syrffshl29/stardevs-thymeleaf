@@ -11,7 +11,7 @@ public class BcryptCustom {
     //paul
     // h97u9347y5ojo1i2-98i==
     // paul -> h97u9347y5ojo1i2-98i==
-    
+
     public BcryptCustom(int logRounds) {
         this.logRounds = logRounds;
     }
