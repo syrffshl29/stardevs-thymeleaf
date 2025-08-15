@@ -31,7 +31,7 @@ public class AuthController {
 
     /** LOGIN */
     @PostMapping("/login")
-    public String login(@ModelAttribute("data") @Valid LoginDto loginDto,
+    public String login( @ModelAttribute("data") @Valid LoginDto loginDto,
                         BindingResult result, Model model, WebRequest request) {
 
         // Tidak ada Base64 decode, langsung pakai password plain text
@@ -162,7 +162,6 @@ public class AuthController {
         registerDto.setTanggalLahir(LocalDate.parse(tanggalLahir));
         return registerDto;
     }
-
     private Boolean registerValidation(Model model, String username, String password,
                                     String namaLengkap, String noHp, String email,
                                     String alamat, String tanggalLahir) {

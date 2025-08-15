@@ -1,7 +1,12 @@
 package org.example.stardevsthymeleaf.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import org.example.stardevsthymeleaf.dto.response.RespTargetTabunganDto;
 import org.example.stardevsthymeleaf.dto.validation.ValTargetTabunganDto;
 import org.example.stardevsthymeleaf.httpclient.TargetService;
 import org.example.stardevsthymeleaf.utils.GlobalFunction;
@@ -23,37 +28,52 @@ public class TargetController {
     @Autowired
     private TargetService targetService;
 
+    private final ObjectMapper mapper = new ObjectMapper();
+
+    /** Helper untuk ambil JWT dari request */
+    private String extractJwt(WebRequest request, Model model) {
+        String jwt = new GlobalFunction().tokenCheck(model, request);
+        if ("redirect:/".equals(jwt)) return null;
+        return jwt;
+    }
+
+    /** Helper untuk convert body response ke List */
+    private List<RespTargetTabunganDto> mapToTargetList(Object bodyData) {
+        ObjectMapper mapper = new ObjectMapper();
+
+        // Daftarkan modul Java 8 date/time
+        mapper.registerModule(new JavaTimeModule());
+
+        // Supaya Jackson bisa menerima field yang namanya berbeda (misal targetName -> nama_target)
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        return mapper.convertValue(bodyData, new TypeReference<List<RespTargetTabunganDto>>() {});
+    }
+
     /** Halaman utama target tabungan */
     @GetMapping
     public String defaultPage(Model model, WebRequest request) {
-        String jwt = new GlobalFunction().tokenCheck(model, request);
-        if ("redirect:/".equals(jwt)) return jwt;
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
 
         try {
             ResponseEntity<Object> response = targetService.findAll(jwt);
             Map<String, Object> body = (Map<String, Object>) response.getBody();
-            List<Map<String, Object>> dataList = (List<Map<String, Object>>) body.get("data");
-
-            // Ubah menjadi list DTO
-            List<ValTargetTabunganDto> targetList = dataList.stream()
-                    .map(data -> new ObjectMapper().convertValue(data, ValTargetTabunganDto.class))
-                    .toList();
-
-            model.addAttribute("targetList", targetList);
+            List<RespTargetTabunganDto> targetList = mapToTargetList(body.get("data"));
+            model.addAttribute("targetList", targetList != null ? targetList : List.of());
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("targetList", List.of());
         }
 
-        new GlobalFunction().insertGlobalAttribut(model, request, "TARGET TABUNGAN");
-        return "main";
+        return "target";
     }
 
     /** Open form Add target tabungan */
     @GetMapping("/a")
     public String openModalAdd(Model model, WebRequest request) {
-        String jwt = new GlobalFunction().tokenCheck(model, request);
-        if ("redirect:/".equals(jwt)) return jwt;
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
 
         model.addAttribute("data", new ValTargetTabunganDto());
         return "target/add";
@@ -65,8 +85,9 @@ public class TargetController {
                        BindingResult bindingResult,
                        Model model,
                        WebRequest request) {
-        String jwt = new GlobalFunction().tokenCheck(model, request);
-        if ("redirect:/".equals(jwt)) return jwt;
+
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("data", valDto);
@@ -75,27 +96,26 @@ public class TargetController {
 
         try {
             targetService.save(jwt, valDto);
+            return "redirect:/target"; // redirect setelah save sukses
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("data", valDto);
             return "target/add";
         }
-
-        return "err-response/200";
     }
 
     /** Open form Edit target tabungan */
     @GetMapping("/e/{id}")
     public String openModalEdit(Model model, @PathVariable Long id, WebRequest request) {
-        String jwt = new GlobalFunction().tokenCheck(model, request);
-        if ("redirect:/".equals(jwt)) return jwt;
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
 
         try {
             ResponseEntity<Object> response = targetService.findById(jwt, id);
             Map<String, Object> body = (Map<String, Object>) response.getBody();
             Map<String, Object> data = (Map<String, Object>) body.get("data");
 
-            ValTargetTabunganDto valDto = new ObjectMapper().convertValue(data, ValTargetTabunganDto.class);
+            ValTargetTabunganDto valDto = mapper.convertValue(data, ValTargetTabunganDto.class);
             model.addAttribute("data", valDto);
             model.addAttribute("ids", id);
         } catch (Exception e) {
@@ -114,8 +134,9 @@ public class TargetController {
                        Model model,
                        @PathVariable Long id,
                        WebRequest request) {
-        String jwt = new GlobalFunction().tokenCheck(model, request);
-        if ("redirect:/".equals(jwt)) return jwt;
+
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("data", valDto);
@@ -125,21 +146,20 @@ public class TargetController {
 
         try {
             targetService.update(jwt, id, valDto);
+            return "redirect:/target"; // redirect setelah update sukses
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("data", valDto);
             model.addAttribute("ids", id);
             return "target/edit";
         }
-
-        return "err-response/200";
     }
 
     /** Delete target tabungan */
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id, Model model, WebRequest request) {
-        String jwt = new GlobalFunction().tokenCheck(model, request);
-        if ("redirect:/".equals(jwt)) return jwt;
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
 
         try {
             targetService.delete(jwt, id);
@@ -147,6 +167,6 @@ public class TargetController {
             e.printStackTrace();
         }
 
-        return "err-response/200";
+        return "redirect:/target";
     }
 }

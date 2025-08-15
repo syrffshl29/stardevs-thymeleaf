@@ -1,8 +1,10 @@
 package org.example.stardevsthymeleaf.httpclient;
 
 import feign.Response;
+import jakarta.servlet.http.HttpServletRequest;
 import org.example.stardevsthymeleaf.dto.validation.ValTargetTabunganDto;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,4 +35,5 @@ public interface TargetService {
     @DeleteMapping("/target/{id}")
     ResponseEntity<Object> delete(@RequestHeader("Authorization") String token,
                                   @PathVariable("id") Long id);
+
 }
