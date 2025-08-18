@@ -1,54 +1,36 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Target Tabungan</title>-->
-<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
-<!--    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="container">-->
-<!--    <h2 class="mb-4">Daftar Target Tabungan</h2>-->
-
-<!--    <div class="mb-3">-->
-<!--        <a class="btn btn-success" th:href="@{/target/a}">Tambah Target Baru</a>-->
-<!--    </div>-->
-
-<!--    <table class="table table-bordered table-striped">-->
-<!--        <thead class="table-dark">-->
-<!--        <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>Nama Target</th>-->
-<!--            <th>Jumlah Target</th>-->
-<!--            <th>Saldo Terkumpul</th>-->
-<!--            <th>Deskripsi</th>-->
-<!--            <th>Tanggal Selesai</th>-->
-<!--            <th>Status</th>-->
-<!--            <th>Aksi</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:each="target : ${targetList}">-->
-<!--            <td th:text="${target.id}">1</td>-->
-<!--            <td th:text="${target.targetName}">Beli Rumah</td>-->
-<!--            <td th:text="${target.jumlahDataTarget}">1000000</td>-->
-<!--            <td th:text="${target.saldoTerkumpul}">0</td>-->
-<!--            <td th:text="${target.deskripsi}">Deskripsi</td>-->
-<!--            <td th:text="${target.tanggalSelesaiTarget}">2025-12-31</td>-->
-<!--            <td th:text="${target.statusTarget}">ACTIVE</td>-->
-<!--            <td>-->
-<!--                <a th:href="@{'/target/e/' + ${target.id}}" class="btn btn-primary btn-sm">Edit</a>-->
-<!--                <form th:action="@{'/target/delete/' + ${target.id}}" method="post" style="display:inline;">-->
-<!--                    <button type="submit" class="btn btn-danger btn-sm"-->
-<!--                            onclick="return confirm('Apakah yakin ingin dihapus?');">Hapus</button>-->
-<!--                </form>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr th:if="${#lists.isEmpty(targetList)}">-->
-<!--            <td colspan="8" class="text-center">Tidak ada data target tabungan</td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Target Tabungan</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="home-container">
+    <h1 class="header">STAR DEVS</h1>
+    <h2>Daftar Target Tabungan</h2>
+    <div class ="controls select">
+           <div class = "sorting">
+            <select>
+                <option>Nama</option>
+                <option>Progres</option>
+            </select>
+            <!-- Tombol tambah target baru -->
+            <a class="add-button" th:href="@{/target/a}">Tambah Target Baru></a>
+            <span class="badge">19</span>
+           </div>
+    </div>
+    <!-- Tabel daftar target -->
+    <div th:each="target : ${targetList}" class ="card">
+            <h3><strong th:text="${target.targetName}"></strong></h3>
+            <p><strong>Target :</strong> Rp <span th:text=" ${target.saldoTerkumpul}"></span></p>
+            <p><strong>Target :</strong> Rp <span th:text="${target.jumlahDataTarget}"></span></p>
+            <p><strong>Deadline :</strong> <span th:text=" ${target.tanggalSelesaiTarget}"></span></p>
+            <p><strong>Deskripsi :</strong> <span th:text=" ${target.deskripsi}"></span></p>
+            <p><strong>Status :</strong> <span th:text=" ${target.statusTarget}"></span></p>
+            <p><strong>Progress :</strong> 25% (Rp 2.500.000)</p>
+            <button class="detail-btn ">Detail</button>
+    </div>
+</div>
+</body>
+</html>

@@ -4,11 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import org.example.stardevsthymeleaf.dto.response.RespTargetTabunganDto;
-import org.example.stardevsthymeleaf.dto.validation.ValTargetTabunganDto;
-import org.example.stardevsthymeleaf.httpclient.TargetService;
+import org.example.stardevsthymeleaf.dto.response.RespTransactionDto;
+import org.example.stardevsthymeleaf.dto.validation.ValTransactionDto;
+import org.example.stardevsthymeleaf.httpclient.TransactionService;
 import org.example.stardevsthymeleaf.utils.GlobalFunction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,11 +21,11 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("target")
-public class TargetController {
+@RequestMapping("transaksi")
+public class TransactionController {
 
     @Autowired
-    private TargetService targetService;
+    private TransactionService transactionService; // Feign Client
 
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -38,50 +37,46 @@ public class TargetController {
     }
 
     /** Helper untuk convert body response ke List */
-    private List<RespTargetTabunganDto> mapToTargetList(Object bodyData) {
+    private List<RespTransactionDto> mapToTransactionList(Object bodyData) {
         ObjectMapper mapper = new ObjectMapper();
-
-        // Daftarkan modul Java 8 date/time
         mapper.registerModule(new JavaTimeModule());
-
-        // Supaya Jackson bisa menerima field yang namanya berbeda (misal targetName -> nama_target)
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        return mapper.convertValue(bodyData, new TypeReference<List<RespTargetTabunganDto>>() {});
+        return mapper.convertValue(bodyData, new TypeReference<List<RespTransactionDto>>() {});
     }
 
-    /** Halaman utama target tabungan */
+    /** Halaman utama transaksi */
     @GetMapping
     public String defaultPage(Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
-        if (jwt == null) return "redirect:/target";
+        if (jwt == null) return "redirect:/";
 
         try {
-            ResponseEntity<Object> response = targetService.findAll(jwt);
+            ResponseEntity<Object> response = transactionService.findAll(jwt);
             Map<String, Object> body = (Map<String, Object>) response.getBody();
-            List<RespTargetTabunganDto> targetList = mapToTargetList(body.get("data"));
-            model.addAttribute("targetList", targetList != null ? targetList : List.of());
+            List<RespTransactionDto> transaksiList = mapToTransactionList(body.get("data"));
+            model.addAttribute("transaksiList", transaksiList != null ? transaksiList : List.of());
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("targetList", List.of());
+            model.addAttribute("transaksiList", List.of());
         }
 
-        return "target";
+        return "transaction";
     }
 
-    /** Open form Add target tabungan */
+    /** Open form Add transaksi */
     @GetMapping("/a")
     public String openModalAdd(Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
 
-        model.addAttribute("data", new ValTargetTabunganDto());
-        return "target/add";
+        model.addAttribute("data", new ValTransactionDto());
+        return "transaksi/add";
     }
 
-    /** Save target tabungan baru */
+    /** Save transaksi baru */
     @PostMapping
-    public String save(@Valid @ModelAttribute("data") ValTargetTabunganDto valDto,
+    public String save(@Valid @ModelAttribute("data") ValTransactionDto valDto,
                        BindingResult bindingResult,
                        Model model,
                        WebRequest request) {
@@ -91,46 +86,46 @@ public class TargetController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("data", valDto);
-            return "target/add";
+            return "transaksi/add";
         }
 
         try {
-            targetService.save(jwt, valDto);
-            return "redirect:/target"; // redirect setelah save sukses
+            transactionService.save(jwt, valDto);
+            return "redirect:/transaksi"; // redirect setelah save sukses
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("data", valDto);
-            return "target/add";
+            return "transaksi/add";
         }
     }
 
-    /** Open form Edit target tabungan */
+    /** Open form Edit transaksi */
     @GetMapping("/e/{id}")
     public String openModalEdit(Model model, @PathVariable Long id, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
 
         try {
-            ResponseEntity<Object> response = targetService.findById(jwt, id);
+            ResponseEntity<Object> response = transactionService.findById(jwt, id);
             Map<String, Object> body = (Map<String, Object>) response.getBody();
             Map<String, Object> data = (Map<String, Object>) body.get("data");
 
-            ValTargetTabunganDto valDto = mapper.convertValue(data, ValTargetTabunganDto.class);
+            ValTransactionDto valDto = mapper.convertValue(data, ValTransactionDto.class);
             model.addAttribute("data", valDto);
             model.addAttribute("ids", id);
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("data", new ValTargetTabunganDto());
+            model.addAttribute("data", new ValTransactionDto());
             model.addAttribute("ids", id);
         }
 
-        return "target/edit";
+        return "transaksi/edit";
     }
 
-    /** Update target tabungan */
+    /** Update transaksi */
     @PostMapping("/{id}")
-    public String edit(@Valid @ModelAttribute("data") ValTargetTabunganDto valDto,
-                        BindingResult bindingResult,
+    public String edit(@Valid @ModelAttribute("data") ValTransactionDto valDto,
+                       BindingResult bindingResult,
                        Model model,
                        @PathVariable Long id,
                        WebRequest request) {
@@ -141,32 +136,32 @@ public class TargetController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("data", valDto);
             model.addAttribute("ids", id);
-            return "target/edit";
+            return "transaksi/edit";
         }
 
         try {
-            targetService.update(jwt, id, valDto);
-            return "redirect:/target"; // redirect setelah update sukses
+            transactionService.update(jwt, id, valDto);
+            return "redirect:/transaksi"; // redirect setelah update sukses
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("data", valDto);
             model.addAttribute("ids", id);
-            return "target/edit";
+            return "transaksi/edit";
         }
     }
 
-    /** Delete target tabungan */
+    /** Delete transaksi */
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id, Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
 
         try {
-            targetService.delete(jwt, id);
+            transactionService.delete(jwt, id);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return "redirect:/target";
+        return "redirect:/transaksi";
     }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Transaksi</title>
+</head>
+<body>
+<h1>Daftar Transaksi</h1>
+<a href="/transaksi/a">Tambah Transaksi</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Jenis</th>
+        <th>Jumlah</th>
+        <th>Status</th>
+        <th>Keterangan</th>
+        <th>Aksi</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tr : ${transaksiList}">
+        <td th:text="${tr.id}"></td>
+        <td th:text="${tr.username}"></td>
+        <td th:text="${tr.jenisTransaksi}"></td>
+        <td th:text="${tr.jumlahTransaksi}"></td>
+        <td th:text="${tr.statusTransaksi}"></td>
+        <td th:text="${tr.keterangan}"></td>
+        <td>
+            <a th:href="@{'/transaksi/e/' + ${tr.id}}">Edit</a> |
+            <form th:action="@{'/transaksi/delete/' + ${tr.id}}" method="post" style="display:inline">
+                <button type="submit" onclick="return confirm('Yakin ingin hapus?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

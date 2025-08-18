@@ -1,786 +1,848 @@
-/*!* Reset dan dasar *!*/
-/** {*/
-/*    box-sizing: border-box;*/
-/*    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
+/* Reset dan dasar */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-/*body {*/
-/*    background-color: #f5e9b0; !* warna dasar cream *!*/
-/*    color: #333;*/
-/*    padding: 20px;*/
-/*}*/
+body {
+    background-color: #f5e9b0; /* warna dasar cream */
+    color: #333;
+    padding: 20px;
+}
 
-/*!* Container utama *!*/
-/*.container {*/
-/*    max-width: 400px;*/
-/*    margin: 20px auto;*/
-/*    background: #fff9e5;*/
-/*    border-radius: 10px;*/
-/*    padding: 30px 25px;*/
-/*    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);*/
-/*    border: 3px solid #dcc27d;*/
-/*}*/
+/* Container utama */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    background: #fff9e5;
+    border-radius: 10px;
+    padding: 30px 25px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    border: 3px solid #dcc27d;
+}
 
-/*!* Judul utama *!*/
-/*h1, h2 {*/
-/*    color: #1c5d84;*/
-/*    text-align: center;*/
-/*    margin-bottom: 20px;*/
-/*    font-weight: 700;*/
-/*}*/
+/* Judul utama */
+h1, h2 {
+    color: #1c5d84;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 
-/*!* Judul subtitle *!*/
-/*.subtitle {*/
-/*    color: #bf8b35;*/
-/*    font-weight: 600;*/
-/*    font-size: 1.2rem;*/
-/*    margin-bottom: 25px;*/
-/*    text-align: center;*/
-/*}*/
+/* Judul subtitle */
+.subtitle {
+    color: #bf8b35;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
 
-/*!* Input form *!*/
-/*input[type="text"],*/
-/*input[type="password"],*/
-/*input[type="email"],*/
-/*input[type="number"],*/
-/*input[type="date"],*/
-/*textarea,*/
-/*select {*/
-/*    width: 100%;*/
-/*    padding: 10px 15px;*/
-/*    border-radius: 7px;*/
-/*    border: 1.5px solid #ddd3a0;*/
-/*    margin-bottom: 15px;*/
-/*    font-size: 1rem;*/
-/*    color: #555;*/
-/*    background-color: #fffef3;*/
-/*    transition: border-color 0.3s ease;*/
-/*}*/
+/* Input form */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1.5px solid #ddd3a0;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fffef3;
+    transition: border-color 0.3s ease;
+}
 
-/*input[type="text"]:focus,*/
-/*input[type="password"]:focus,*/
-/*input[type="email"]:focus,*/
-/*input[type="number"]:focus,*/
-/*input[type="date"]:focus,*/
-/*textarea:focus,*/
-/*select:focus {*/
-/*    outline: none;*/
-/*    border-color: #1c5d84;*/
-/*    background-color: #f9f9f2;*/
-/*}*/
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #1c5d84;
+    background-color: #f9f9f2;
+}
 
-/*!* Textarea khusus *!*/
-/*textarea {*/
-/*    min-height: 80px;*/
-/*    resize: vertical;*/
-/*}*/
+/* Textarea khusus */
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
 
-/*!* Tombol utama *!*/
-/*button, .btn {*/
-/*    cursor: pointer;*/
-/*    padding: 10px 20px;*/
-/*    font-weight: 600;*/
-/*    font-size: 1rem;*/
-/*    border-radius: 7px;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    transition: background-color 0.3s ease;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*}*/
+/* Tombol utama */
+button, .btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
 
-/*!* Tombol biru *!*/
-/*.btn-blue {*/
-/*    background-color: #2a85d7;*/
-/*    width: 100%;*/
-/*    margin-top: 15px;*/
-/*}*/
+/* Tombol biru */
+.btn-blue {
+    background-color: #2a85d7;
+    width: 100%;
+    margin-top: 15px;
+}
 
-/*.btn-blue:hover {*/
-/*    background-color: #1c5d84;*/
-/*}*/
+.btn-blue:hover {
+    background-color: #1c5d84;
+}
 
-/*!* Tombol orange *!*/
-/*.btn-orange {*/
-/*    background: linear-gradient(90deg, #df7d1e, #f07b21);*/
-/*    color: white;*/
-/*    width: 48%;*/
-/*    margin-right: 4%;*/
-/*    margin-top: 10px;*/
-/*    font-weight: 600;*/
-/*}*/
+/* Tombol orange */
+.btn-orange {
+    background: linear-gradient(90deg, #df7d1e, #f07b21);
+    color: white;
+    width: 48%;
+    margin-right: 4%;
+    margin-top: 10px;
+    font-weight: 600;
+}
 
-/*.btn-orange:last-child {*/
-/*    margin-right: 0;*/
-/*}*/
+.btn-orange:last-child {
+    margin-right: 0;
+}
 
-/*.btn-orange:hover {*/
-/*    background: linear-gradient(90deg, #b75813, #cc5a14);*/
-/*}*/
+.btn-orange:hover {
+    background: linear-gradient(90deg, #b75813, #cc5a14);
+}
 
-/*!* Tombol lain (Tambah, Tarik, Edit, Hapus) *!*/
-/*.btn-green {*/
-/*    background-color: #4caf50;*/
-/*}*/
+/* Tombol lain (Tambah, Tarik, Edit, Hapus) */
+.btn-green {
+    background-color: #4caf50;
+}
 
-/*.btn-green:hover {*/
-/*    background-color: #3a8d37;*/
-/*}*/
+.btn-green:hover {
+    background-color: #3a8d37;
+}
 
-/*.btn-red {*/
-/*    background-color: #d9534f;*/
-/*}*/
+.btn-red {
+    background-color: #d9534f;
+}
 
-/*.btn-red:hover {*/
-/*    background-color: #b13430;*/
-/*}*/
+.btn-red:hover {
+    background-color: #b13430;
+}
 
-/*.btn-yellow {*/
-/*    background-color: #f0c419;*/
-/*    color: #3a3a3a;*/
-/*}*/
+.btn-yellow {
+    background-color: #f0c419;
+    color: #3a3a3a;
+}
 
-/*.btn-yellow:hover {*/
-/*    background-color: #c4a014;*/
-/*}*/
+.btn-yellow:hover {
+    background-color: #c4a014;
+}
 
-/*!* Card target tabungan *!*/
-/*.saving-card {*/
-/*    background-color: #fff8e1;*/
-/*    border-radius: 10px;*/
-/*    margin-bottom: 15px;*/
-/*    padding: 15px 20px;*/
-/*    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);*/
-/*    border: 1.5px solid #f2d884;*/
-/*    position: relative;*/
-/*}*/
+/* Card target tabungan */
+.saving-card {
+    background-color: #fff8e1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    border: 1.5px solid #f2d884;
+    position: relative;
+}
 
-/*.saving-card h3 {*/
-/*    margin-bottom: 10px;*/
-/*    color: #1c5d84;*/
-/*}*/
+.saving-card h3 {
+    margin-bottom: 10px;
+    color: #1c5d84;
+}
 
-/*.saving-card p {*/
-/*    font-size: 0.95rem;*/
-/*    margin: 4px 0;*/
-/*}*/
+.saving-card p {
+    font-size: 0.95rem;
+    margin: 4px 0;
+}
 
-/*.saving-card .btn-detail {*/
-/*    position: absolute;*/
-/*    top: 15px;*/
-/*    right: 20px;*/
-/*    background-color: #e07800;*/
-/*    color: white;*/
-/*    border-radius: 6px;*/
-/*    padding: 6px 12px;*/
-/*    font-weight: 600;*/
-/*    font-size: 0.85rem;*/
-/*    cursor: pointer;*/
-/*    border: none;*/
-/*    transition: background-color 0.3s ease;*/
-/*}*/
+.saving-card .btn-detail {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: #e07800;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
 
-/*.saving-card .btn-detail:hover {*/
-/*    background-color: #c16000;*/
-/*}*/
+.saving-card .btn-detail:hover {
+    background-color: #c16000;
+}
 
-/*!* Progress bar *!*/
-/*.progress-bar-container {*/
-/*    background-color: #ffd;*/
-/*    border-radius: 8px;*/
-/*    overflow: hidden;*/
-/*    margin: 12px 0;*/
-/*    height: 18px;*/
-/*    border: 1.5px solid #f2d884;*/
-/*}*/
+/* Progress bar */
+.progress-bar-container {
+    background-color: #ffd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 12px 0;
+    height: 18px;
+    border: 1.5px solid #f2d884;
+}
 
-/*.progress-bar {*/
-/*    height: 100%;*/
-/*    background-color: #2a85d7;*/
-/*    transition: width 0.5s ease;*/
-/*}*/
+.progress-bar {
+    height: 100%;
+    background-color: #2a85d7;
+    transition: width 0.5s ease;
+}
 
-/*!* Teks progress warna merah (misal progress negatif) *!*/
-/*.progress-red {*/
-/*    color: #d9534f;*/
-/*    font-weight: 600;*/
-/*    margin-top: 5px;*/
-/*}*/
+/* Teks progress warna merah (misal progress negatif) */
+.progress-red {
+    color: #d9534f;
+    font-weight: 600;
+    margin-top: 5px;
+}
 
-/*!* Riwayat transaksi *!*/
-/*.transaction-list {*/
-/*    background-color: #fff8e1;*/
-/*    padding: 15px 20px;*/
-/*    border-radius: 8px;*/
-/*    font-size: 0.95rem;*/
-/*    line-height: 1.4;*/
-/*    border: 1.5px solid #f2d884;*/
-/*    margin-top: 15px;*/
-/*}*/
+/* Riwayat transaksi */
+.transaction-list {
+    background-color: #fff8e1;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border: 1.5px solid #f2d884;
+    margin-top: 15px;
+}
+/* Sorting dan tombol */
+.controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center ;
+    margin-bottom: 15px;
+}
+.controls select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.controls .add-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-/*!* Sorting & Add Data *!*/
-/*.sort-add {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    margin-bottom: 20px;*/
-/*}*/
+.controls .badge {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
 
-/*.sort-add select {*/
-/*    max-width: 150px;*/
-/*}*/
+/* Card target tabungan */
+.card {
+    background-color: #fff3c3;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    border: 1px solid #e0d6a3;
+}
 
-/*.sort-add .btn-add {*/
-/*    background-color: #2a85d7;*/
-/*    padding: 8px 16px;*/
-/*    border-radius: 7px;*/
-/*    color: white;*/
-/*    font-weight: 600;*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.3s ease;*/
-/*}*/
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
 
-/*.sort-add .btn-add:hover {*/
-/*    background-color: #1c5d84;*/
-/*}*/
+.card p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
 
-/*!* Additional styles for Home page *!*/
-/*.home-container {*/
-/*    max-width: 900px; !* Wider container for dashboard-like pages *!*/
-/*    margin: 20px auto;*/
-/*    background: #fff9e5;*/
-/*    border-radius: 10px;*/
-/*    padding: 30px;*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*    border: 3px solid #dcc27d;*/
-/*}*/
-/*nav ul {*/
-/*    list-style: none;*/
-/*    padding: 0;*/
-/*    display: flex;*/
-/*    flex-wrap: wrap; !* Allow wrapping on smaller screens *!*/
-/*    gap: 15px; !* Space between nav items *!*/
-/*    justify-content: center; !* Center nav items *!*/
-/*    margin-top: 20px;*/
-/*}*/
-/*nav ul li {*/
-/*    display: inline; !* Keep list items inline *!*/
-/*}*/
-/*nav ul li a {*/
-/*    text-decoration: none;*/
-/*    color: #1c5d84; !* Use a color from style.css *!*/
-/*    font-weight: 600;*/
-/*    padding: 8px 15px;*/
-/*    border-radius: 5px;*/
-/*    transition: background-color 0.3s ease, color 0.3s ease;*/
-/*}*/
-/*nav ul li a:hover {*/
-/*    background-color: #1c5d84; !* Dark blue background on hover *!*/
-/*    color: white; !* White text on hover *!*/
-/*}*/
-/*h1.page-title {*/
-/*    color: #1c5d84; !* Use the primary blue from style.css *!*/
-/*    text-align: center;*/
-/*    margin-bottom: 30px;*/
-/*    font-weight: 700;*/
-/*}*/
+.card .detail-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
 
-/*!* Dashboard specific styles *!*/
-/*.dashboard-container {*/
-/*    max-width: 1000px; !* Wider container for dashboard *!*/
-/*    margin: 20px auto;*/
-/*    padding: 30px;*/
-/*    background: #fff9e5;*/
-/*    border-radius: 10px;*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*    border: 3px solid #dcc27d;*/
-/*}*/
-/*nav ul {*/
-/*    list-style: none;*/
-/*    padding: 0;*/
-/*    display: flex;*/
-/*    flex-wrap: wrap; !* Allow wrapping on smaller screens *!*/
-/*    gap: 15px; !* Space between nav items *!*/
-/*    justify-content: center; !* Center nav items *!*/
-/*    margin-top: 20px;*/
-/*}*/
-/*nav ul li {*/
-/*    display: inline; !* Keep list items inline *!*/
-/*}*/
-/*nav ul li a {*/
-/*    text-decoration: none;*/
-/*    color: #1c5d84; !* Use a color from style.css *!*/
-/*    font-weight: 600;*/
-/*    padding: 8px 15px;*/
-/*    border-radius: 5px;*/
-/*    transition: background-color 0.3s ease, color 0.3s ease;*/
-/*}*/
-/*nav ul li a:hover {*/
-/*    background-color: #1c5d84; !* Dark blue background on hover *!*/
-/*    color: white; !* White text on hover *!*/
-/*}*/
-/*h1.page-title {*/
-/*    color: #1c5d84; !* Use the primary blue from style.css *!*/
-/*    text-align: center;*/
-/*    margin-bottom: 30px;*/
-/*    font-weight: 700;*/
-/*}*/
-/*.sort-add {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    margin-bottom: 20px;*/
-/*    padding: 15px;*/
-/*    background-color: #fff8e1;*/
-/*    border-radius: 8px;*/
-/*    border: 1.5px solid #f2d884;*/
-/*}*/
-/*.sort-add select {*/
-/*    max-width: 150px;*/
-/*    padding: 10px 15px;*/
-/*    border-radius: 7px;*/
-/*    border: 1.5px solid #ddd3a0;*/
-/*    font-size: 1rem;*/
-/*    color: #555;*/
-/*    background-color: #fffef3;*/
-/*}*/
-/*.sort-add .btn-add {*/
-/*    background-color: #2a85d7;*/
-/*    padding: 10px 20px;*/
-/*    border-radius: 7px;*/
-/*    color: white;*/
-/*    font-weight: 600;*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.3s ease;*/
-/*    font-size: 1rem;*/
-/*    text-decoration: none;*/
-/*    display: inline-block;*/
-/*}*/
-/*.sort-add .btn-add:hover {*/
-/*    background-color: #1c5d84;*/
-/*}*/
-/*.saving-card {*/
-/*    background-color: #fff8e1;*/
-/*    border-radius: 10px;*/
-/*    margin-bottom: 15px;*/
-/*    padding: 15px 20px;*/
-/*    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);*/
-/*    border: 1.5px solid #f2d884;*/
-/*    position: relative;*/
-/*}*/
-/*.saving-card h3 {*/
-/*    margin-bottom: 10px;*/
-/*    color: #1c5d84;*/
-/*}*/
-/*.saving-card p {*/
-/*    font-size: 0.95rem;*/
-/*    margin: 4px 0;*/
-/*}*/
-/*.saving-card .btn-detail {*/
-/*    position: absolute;*/
-/*    top: 15px;*/
-/*    right: 20px;*/
-/*    background-color: #e07800;*/
-/*    color: white;*/
-/*    border-radius: 6px;*/
-/*    padding: 6px 12px;*/
-/*    font-weight: 600;*/
-/*    font-size: 0.85rem;*/
-/*    cursor: pointer;*/
-/*    border: none;*/
-/*    transition: background-color 0.3s ease;*/
-/*}*/
-/*.saving-card .btn-detail:hover {*/
-/*    background-color: #c16000;*/
-/*}*/
-/*.progress-bar-container {*/
-/*    background-color: #ffd;*/
-/*    border-radius: 8px;*/
-/*    overflow: hidden;*/
-/*    margin: 12px 0;*/
-/*    height: 18px;*/
-/*    border: 1.5px solid #f2d884;*/
-/*}*/
-/*.progress-bar {*/
-/*    height: 100%;*/
-/*    background-color: #2a85d7;*/
-/*    transition: width 0.5s ease;*/
-/*}*/
+/* Sorting & Add Data */
+.sort-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-/*!* Target Detail specific styles *!*/
-/*.container { !* Reusing the generic container *!*/
-/*    max-width: 800px; !* Slightly narrower than dashboard *!*/
-/*}*/
-/*h2.subtitle { !* Using subtitle class for consistency *!*/
-/*    color: #1c5d84;*/
-/*    font-weight: 600;*/
-/*    font-size: 1.2rem;*/
-/*    margin-bottom: 25px;*/
-/*    text-align: center;*/
-/*}*/
-/*.target-details p {*/
-/*    margin-bottom: 10px;*/
-/*    font-size: 1rem;*/
-/*    line-height: 1.5;*/
-/*}*/
-/*.target-details p b {*/
-/*    color: #1c5d84; !* Primary blue for labels *!*/
-/*}*/
-/*.progress-info {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    margin-top: 15px;*/
-/*    margin-bottom: 25px;*/
-/*}*/
-/*.progress-bar-container { !* Reusing progress bar styles *!*/
-/*    background-color: #ffd;*/
-/*    border-radius: 8px;*/
-/*    overflow: hidden;*/
-/*    height: 18px;*/
-/*    border: 1.5px solid #f2d884;*/
-/*    flex-grow: 1; !* Allow progress bar to take available space *!*/
-/*    margin-right: 10px;*/
-/*}*/
-/*.progress-bar { !* Reusing progress bar styles *!*/
-/*    height: 100%;*/
-/*    background-color: #2a85d7;*/
-/*    transition: width 0.5s ease;*/
-/*}*/
-/*.progress-percentage {*/
-/*    font-weight: 600;*/
-/*    color: #1c5d84;*/
-/*}*/
-/*.progress-remaining {*/
-/*    font-weight: 600;*/
-/*    color: #d9534f; !* Red for remaining *!*/
-/*}*/
-/*.btn-group {*/
-/*    margin-top: 25px;*/
-/*    margin-bottom: 30px;*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*    gap: 10px;*/
-/*}*/
-/*.btn-group a {*/
-/*    text-decoration: none;*/
-/*    padding: 10px 20px;*/
-/*    font-weight: 600;*/
-/*    font-size: 1rem;*/
-/*    border-radius: 7px;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    transition: background-color 0.3s ease;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*}*/
-/*.btn-group .btn-success { background-color: #2a85d7; } !* Maps to btn-blue *!*/
-/*.btn-group .btn-success:hover { background-color: #1c5d84; }*/
+.sort-add select {
+    max-width: 150px;
+}
 
-/*.btn-group .btn-danger { background-color: #d9534f; } !* Maps to btn-red *!*/
-/*.btn-group .btn-danger:hover { background-color: #b13430; }*/
+.sort-add .btn-add {
+    background-color: #2a85d7;
+    padding: 8px 16px;
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-/*.btn-group .btn-warning { background-color: #f0c419; color: #3a3a3a; } !* Maps to btn-yellow *!*/
-/*.btn-group .btn-warning:hover { background-color: #c4a014; }*/
+.sort-add .btn-add:hover {
+    background-color: #1c5d84;
+}
 
-/*.btn-group .btn-delete { background-color: #d9534f; } !* Maps to btn-red for delete *!*/
-/*.btn-group .btn-delete:hover { background-color: #b13430; }*/
+/* Additional styles for Home page */
+.home-container {
+    max-width: 900px; /* Wider container for dashboard-like pages */
+    margin: 20px auto;
+    background: #fff9e5;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #dcc27d;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Space between nav items */
+    justify-content: center; /* Center nav items */
+    margin-top: 20px;
+}
+nav ul li {
+    display: inline; /* Keep list items inline */
+}
+nav ul li a {
+    text-decoration: none;
+    color: #1c5d84; /* Use a color from style.css */
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav ul li a:hover {
+    background-color: #1c5d84; /* Dark blue background on hover */
+    color: white; /* White text on hover */
+}
+h1.page-title {
+    color: #1c5d84; /* Use the primary blue from style.css */
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
 
-/*.transaction-history {*/
-/*    background-color: #fff8e1;*/
-/*    padding: 15px 20px;*/
-/*    border-radius: 8px;*/
-/*    border: 1.5px solid #f2d884;*/
-/*    margin-top: 15px;*/
-/*}*/
-/*.transaction-history h4 {*/
-/*    color: #1c5d84;*/
-/*    margin-bottom: 15px;*/
-/*    font-weight: 700;*/
-/*}*/
-/*.transaction-history ul {*/
-/*    list-style: none;*/
-/*    padding: 0;*/
-/*}*/
-/*.transaction-history li {*/
-/*    font-size: 0.95rem;*/
-/*    line-height: 1.6;*/
-/*    margin-bottom: 8px;*/
-/*    border-bottom: 1px dashed #f2d884;*/
-/*    padding-bottom: 5px;*/
-/*}*/
-/*.transaction-history li:last-child {*/
-/*    border-bottom: none;*/
-/*}*/
+/* Dashboard specific styles */
+.dashboard-container {
+    max-width: 1000px; /* Wider container for dashboard */
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff9e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #dcc27d;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Space between nav items */
+    justify-content: center; /* Center nav items */
+    margin-top: 20px;
+}
+nav ul li {
+    display: inline; /* Keep list items inline */
+}
+nav ul li a {
+    text-decoration: none;
+    color: #1c5d84; /* Use a color from style.css */
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav ul li a:hover {
+    background-color: #1c5d84; /* Dark blue background on hover */
+    color: white; /* White text on hover */
+}
+h1.page-title {
+    color: #1c5d84; /* Use the primary blue from style.css */
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.sort-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff8e1;
+    border-radius: 8px;
+    border: 1.5px solid #f2d884;
+}
+.sort-add select {
+    max-width: 150px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1.5px solid #ddd3a0;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fffef3;
+}
+.sort-add .btn-add {
+    background-color: #2a85d7;
+    padding: 10px 20px;
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+}
+.sort-add .btn-add:hover {
+    background-color: #1c5d84;
+}
+.saving-card {
+    background-color: #fff8e1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    border: 1.5px solid #f2d884;
+    position: relative;
+}
+.saving-card h3 {
+    margin-bottom: 10px;
+    color: #1c5d84;
+}
+.saving-card p {
+    font-size: 0.95rem;
+    margin: 4px 0;
+}
+.saving-card .btn-detail {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: #e07800;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.saving-card .btn-detail:hover {
+    background-color: #c16000;
+}
+.progress-bar-container {
+    background-color: #ffd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 12px 0;
+    height: 18px;
+    border: 1.5px solid #f2d884;
+}
+.progress-bar {
+    height: 100%;
+    background-color: #2a85d7;
+    transition: width 0.5s ease;
+}
+h2.subtitle { /* Using subtitle class for consistency */
+    color: #1c5d84;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.target-details p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.target-details p b {
+    color: #1c5d84; /* Primary blue for labels */
+}
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+.progress-bar-container { /* Reusing progress bar styles */
+    background-color: #ffd;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 18px;
+    border: 1.5px solid #f2d884;
+    flex-grow: 1; /* Allow progress bar to take available space */
+    margin-right: 10px;
+}
+.progress-bar { /* Reusing progress bar styles */
+    height: 100%;
+    background-color: #2a85d7;
+    transition: width 0.5s ease;
+}
+.progress-percentage {
+    font-weight: 600;
+    color: #1c5d84;
+}
+.progress-remaining {
+    font-weight: 600;
+    color: #d9534f; /* Red for remaining */
+}
+.btn-group {
+    margin-top: 25px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.btn-group a {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+.btn-group .btn-success { background-color: #2a85d7; } /* Maps to btn-blue */
+.btn-group .btn-success:hover { background-color: #1c5d84; }
 
-/*!* Target List specific styles *!*/
-/*.container { !* Reusing the generic container *!*/
-/*    max-width: 900px;*/
-/*}*/
-/*h2.page-title { !* Using page-title for main heading *!*/
-/*    color: #1c5d84;*/
-/*    text-align: center;*/
-/*    margin-bottom: 10px;*/
-/*    font-weight: 700;*/
-/*}*/
-/*h3.subtitle { !* Using subtitle for sub-heading *!*/
-/*    color: #bf8b35;*/
-/*    font-weight: 600;*/
-/*    font-size: 1.2rem;*/
-/*    margin-bottom: 25px;*/
-/*    text-align: center;*/
-/*}*/
-/*.sort-add { !* Reusing sort-add styles for the form *!*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    margin-bottom: 20px;*/
-/*    padding: 15px;*/
-/*    background-color: #fff8e1;*/
-/*    border-radius: 8px;*/
-/*    border: 1.5px solid #f2d884;*/
-/*}*/
-/*.sort-add label {*/
-/*    font-weight: 600;*/
-/*    margin-right: 10px;*/
-/*    color: #1c5d84;*/
-/*}*/
-/*.sort-add select {*/
-/*    max-width: 150px;*/
-/*    padding: 10px 15px;*/
-/*    border-radius: 7px;*/
-/*    border: 1.5px solid #ddd3a0;*/
-/*    font-size: 1rem;*/
-/*    color: #555;*/
-/*    background-color: #fffef3;*/
-/*}*/
-/*.btn-primary { !* Mapping btn-primary to btn-blue *!*/
-/*    background-color: #2a85d7;*/
-/*    color: white;*/
-/*    padding: 10px 20px;*/
-/*    font-weight: 600;*/
-/*    font-size: 1rem;*/
-/*    border-radius: 7px;*/
-/*    border: none;*/
-/*    cursor: pointer;*/
-/*    transition: background-color 0.3s ease;*/
-/*    text-decoration: none;*/
-/*    display: inline-block;*/
-/*}*/
-/*.btn-primary:hover {*/
-/*    background-color: #1c5d84;*/
-/*}*/
-/*.badge {*/
-/*    background-color: #e07800; !* Orange badge *!*/
-/*    color: white;*/
-/*    padding: 5px 10px;*/
-/*    border-radius: 50%; !* Circular badge *!*/
-/*    font-size: 0.8rem;*/
-/*    font-weight: bold;*/
-/*    min-width: 20px; !* Ensure it's visible *!*/
-/*    text-align: center;*/
-/*    display: inline-block;*/
-/*    line-height: 1.2;*/
-/*}*/
-/*.target-cards {*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); !* Responsive grid *!*/
-/*    gap: 20px;*/
-/*}*/
-/*.target-card { !* Reusing saving-card styles *!*/
-/*    background-color: #fff8e1;*/
-/*    border-radius: 10px;*/
-/*    padding: 15px 20px;*/
-/*    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);*/
-/*    border: 1.5px solid #f2d884;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: space-between; !* Push detail button to bottom *!*/
-/*}*/
-/*.target-card h4 {*/
-/*    color: #1c5d84;*/
-/*    margin-bottom: 10px;*/
-/*    font-size: 1.1rem;*/
-/*    font-weight: 700;*/
-/*}*/
-/*.target-card p {*/
-/*    font-size: 0.95rem;*/
-/*    margin: 4px 0;*/
-/*    line-height: 1.5;*/
-/*}*/
-/*.target-card p b {*/
-/*    color: #1c5d84;*/
-/*}*/
-/*.target-card .btn-warning { !* Reusing btn-warning style *!*/
-/*    background-color: #f0c419;*/
-/*    color: #3a3a3a;*/
-/*    padding: 8px 15px;*/
-/*    font-size: 0.85rem;*/
-/*    border-radius: 6px;*/
-/*    text-align: center;*/
-/*    margin-top: auto; !* Push to bottom *!*/
-/*    display: inline-block;*/
-/*    text-decoration: none;*/
-/*}*/
-/*.target-card .btn-warning:hover {*/
-/*    background-color: #c4a014;*/
-/*}*/
+.btn-group .btn-danger { background-color: #d9534f; } /* Maps to btn-red */
+.btn-group .btn-danger:hover { background-color: #b13430; }
 
-/*!* Login specific styles *!*/
-/*.container { !* Reusing the generic container *!*/
-/*    max-width: 450px; !* Standard login form width *!*/
-/*}*/
-/*h2.page-title { !* Styling for the brand name *!*/
-/*    color: #1c5d84;*/
-/*    text-align: center;*/
-/*    margin-bottom: 10px;*/
-/*    font-weight: 700;*/
-/*    cursor: pointer; !* Make it clear it's clickable *!*/
-/*}*/
-/*h2.page-title a { !* Ensure link inherits styles *!*/
-/*    text-decoration: none;*/
-/*    color: inherit;*/
-/*}*/
-/*h3.subtitle { !* Styling for the form title *!*/
-/*    color: #bf8b35;*/
-/*    font-weight: 600;*/
-/*    font-size: 1.2rem;*/
-/*    margin-bottom: 25px;*/
-/*    text-align: center;*/
-/*}*/
-/*.login-form div { !* Spacing for form fields *!*/
-/*    margin-bottom: 15px;*/
-/*}*/
-/*.login-form label {*/
-/*    display: block;*/
-/*    margin-bottom: 8px;*/
-/*    font-weight: 600;*/
-/*    color: #1c5d84;*/
-/*}*/
-/*.login-form input[type="text"],*/
-/*.login-form input[type="password"] {*/
-/*    width: 100%;*/
-/*    padding: 10px 15px;*/
-/*    border-radius: 7px;*/
-/*    border: 1.5px solid #ddd3a0;*/
-/*    font-size: 1rem;*/
-/*    color: #555;*/
-/*    background-color: #fffef3;*/
-/*}*/
-/*.login-form input[type="text"]:focus,*/
-/*.login-form input[type="password"]:focus {*/
-/*    outline: none;*/
-/*    border-color: #1c5d84;*/
-/*}*/
-/*.login-form button[type="submit"] { !* Styling for the login button *!*/
-/*    width: 100%;*/
-/*    padding: 10px 20px;*/
-/*    font-weight: 600;*/
-/*    font-size: 1rem;*/
-/*    border-radius: 7px;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    transition: background-color 0.3s ease;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*    background-color: #2a85d7; !* btn-blue *!*/
-/*}*/
-/*.login-form button[type="submit"]:hover {*/
-/*    background-color: #1c5d84;*/
-/*}*/
-/*.login-options { !* Styling for the group of links *!*/
-/*    margin-top: 20px;*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    gap: 10px;*/
-/*}*/
-/*.login-options a { !* Reusing btn-warning styles *!*/
-/*    text-decoration: none;*/
-/*    padding: 10px 15px;*/
-/*    font-weight: 600;*/
-/*    font-size: 0.9rem;*/
-/*    border-radius: 7px;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    transition: background-color 0.3s ease;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*    background-color: #f0c419; !* btn-yellow *!*/
-/*    flex-grow: 1; !* Allow links to grow *!*/
-/*}*/
-/*.login-options a:hover {*/
-/*    background-color: #c4a014;*/
-/*}*/
+.btn-group .btn-warning { background-color: #f0c419; color: #3a3a3a; } /* Maps to btn-yellow */
+.btn-group .btn-warning:hover { background-color: #c4a014; }
 
-/*!* Registration specific styles *!*/
-/*.container { !* Reusing the generic container *!*/
-/*    max-width: 500px; !* Slightly wider for more fields *!*/
-/*}*/
-/*h2.page-title { !* Styling for the brand name *!*/
-/*    color: #1c5d84;*/
-/*    text-align: center;*/
-/*    margin-bottom: 10px;*/
-/*    font-weight: 700;*/
-/*}*/
-/*h3.subtitle { !* Styling for the form title *!*/
-/*    color: #bf8b35;*/
-/*    font-weight: 600;*/
-/*    font-size: 1.2rem;*/
-/*    margin-bottom: 25px;*/
-/*    text-align: center;*/
-/*}*/
-/*.register-form div { !* Spacing for form fields *!*/
-/*    margin-bottom: 15px;*/
-/*}*/
-/*.register-form label {*/
-/*    display: block;*/
-/*    margin-bottom: 8px;*/
-/*    font-weight: 600;*/
-/*    color: #1c5d84;*/
-/*}*/
-/*.register-form input[type="text"],*/
-/*.register-form input[type="password"],*/
-/*.register-form input[type="email"],*/
-/*.register-form input[type="date"],*/
-/*.register-form input[type="file"], !* Style for file input *!*/
-/*.register-form textarea {*/
-/*    width: 100%;*/
-/*    padding: 10px 15px;*/
-/*    border-radius: 7px;*/
-/*    border: 1.5px solid #ddd3a0;*/
-/*    font-size: 1rem;*/
-/*    color: #555;*/
-/*    background-color: #fffef3;*/
-/*}*/
-/*.register-form input[type="text"]:focus,*/
-/*.register-form input[type="password"]:focus,*/
-/*.register-form input[type="email"]:focus,*/
-/*.register-form input[type="date"]:focus,*/
-/*.register-form textarea:focus {*/
-/*    outline: none;*/
-/*    border-color: #1c5d84;*/
-/*}*/
-/*.register-form input[type="file"] {*/
-/*    padding: 7px 15px; !* Adjust padding for file input *!*/
-/*    cursor: pointer;*/
-/*}*/
-/*.register-form button[type="submit"] { !* Styling for the register button *!*/
-/*    width: 100%;*/
-/*    padding: 10px 20px;*/
-/*    font-weight: 600;*/
-/*    font-size: 1rem;*/
-/*    border-radius: 7px;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    transition: background-color 0.3s ease;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*    background-color: #2a85d7; !* btn-blue *!*/
-/*}*/
-/*.register-form button[type="submit"]:hover {*/
-/*    background-color: #1c5d84;*/
-/*}*/
+.btn-group .btn-delete { background-color: #d9534f; } /* Maps to btn-red for delete */
+.btn-group .btn-delete:hover { background-color: #b13430; }
 
+.transaction-history {
+    background-color: #fff8e1;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1.5px solid #f2d884;
+    margin-top: 15px;
+}
+.transaction-history h4 {
+    color: #1c5d84;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.transaction-history ul {
+    list-style: none;
+    padding: 0;
+}
+.transaction-history li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #f2d884;
+    padding-bottom: 5px;
+}
+.transaction-history li:last-child {
+    border-bottom: none;
+}
+
+/* Target List specific styles */
+.container { /* Reusing the generic container */
+    max-width: 900px;
+}
+h2.page-title { /* Using page-title for main heading */
+    color: #1c5d84;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+h3.subtitle { /* Using subtitle for sub-heading */
+    color: #bf8b35;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.sort-add { /* Reusing sort-add styles for the form */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff8e1;
+    border-radius: 8px;
+    border: 1.5px solid #f2d884;
+}
+.sort-add label {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #1c5d84;
+}
+.sort-add select {
+    max-width: 150px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1.5px solid #ddd3a0;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fffef3;
+}
+.btn-primary { /* Mapping btn-primary to btn-blue */
+    background-color: #2a85d7;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-primary:hover {
+    background-color: #1c5d84;
+}
+.badge {
+    background-color: #e07800; /* Orange badge */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%; /* Circular badge */
+    font-size: 0.8rem;
+    font-weight: bold;
+    min-width: 20px; /* Ensure it's visible */
+    text-align: center;
+    display: inline-block;
+    line-height: 1.2;
+}
+.target-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+.target-card { /* Reusing saving-card styles */
+    background-color: #fff8e1;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    border: 1.5px solid #f2d884;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push detail button to bottom */
+}
+.target-card h4 {
+    color: #1c5d84;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.target-card p {
+    font-size: 0.95rem;
+    margin: 4px 0;
+    line-height: 1.5;
+}
+.target-card p b {
+    color: #1c5d84;
+}
+.target-card .btn-warning { /* Reusing btn-warning style */
+    background-color: #f0c419;
+    color: #3a3a3a;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: auto; /* Push to bottom */
+    display: inline-block;
+    text-decoration: none;
+}
+.target-card .btn-warning:hover {
+    background-color: #c4a014;
+}
+
+/* Login specific styles */
+.container { /* Reusing the generic container */
+    max-width: 450px; /* Standard login form width */
+}
+h2.page-title { /* Styling for the brand name */
+    color: #1c5d84;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    cursor: pointer; /* Make it clear it's clickable */
+}
+h2.page-title a { /* Ensure link inherits styles */
+    text-decoration: none;
+    color: inherit;
+}
+h3.subtitle { /* Styling for the form title */
+    color: #bf8b35;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.login-form div { /* Spacing for form fields */
+    margin-bottom: 15px;
+}
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1c5d84;
+}
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1.5px solid #ddd3a0;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fffef3;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    outline: none;
+    border-color: #1c5d84;
+}
+.login-form button[type="submit"] { /* Styling for the login button */
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    background-color: #2a85d7; /* btn-blue */
+}
+.login-form button[type="submit"]:hover {
+    background-color: #1c5d84;
+}
+.login-options { /* Styling for the group of links */
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.login-options a { /* Reusing btn-warning styles */
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    background-color: #f0c419; /* btn-yellow */
+    flex-grow: 1; /* Allow links to grow */
+}
+.login-options a:hover {
+    background-color: #c4a014;
+}
+
+/* Registration specific styles */
+.container { /* Reusing the generic container */
+    max-width: 500px; /* Slightly wider for more fields */
+}
+h2.page-title { /* Styling for the brand name */
+    color: #1c5d84;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+h3.subtitle { /* Styling for the form title */
+    color: #bf8b35;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.register-form div { /* Spacing for form fields */
+    margin-bottom: 15px;
+}
+.register-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1c5d84;
+}
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form input[type="email"],
+.register-form input[type="date"],
+.register-form input[type="file"], /* Style for file input */
+.register-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: 1.5px solid #ddd3a0;
+    font-size: 1rem;
+    color: #555;
+    background-color: #fffef3;
+}
+.register-form input[type="text"]:focus,
+.register-form input[type="password"]:focus,
+.register-form input[type="email"]:focus,
+.register-form input[type="date"]:focus,
+.register-form textarea:focus {
+    outline: none;
+    border-color: #1c5d84;
+}
+.register-form input[type="file"] {
+    padding: 7px 15px; /* Adjust padding for file input */
+    cursor: pointer;
+}
+.register-form button[type="submit"] { /* Styling for the register button */
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    background-color: #2a85d7; /* btn-blue */
+}
+.register-form button[type="submit"]:hover {
+    background-color: #1c5d84;
+}
+/* Reset dan font dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 

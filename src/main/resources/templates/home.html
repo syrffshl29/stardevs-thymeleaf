@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+    <title>HOME</title>
+</head>
+<div class = "container">
+<body>
+<h1 style="color: green">HOME</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <th:block th:if="${username != null}" th:utext="${MENU_NAVBAR}"></th:block>
+        <li><a th:href="@{/logout}" th:if="${username != null}" >Logout</a></li>
+        <li><a th:href="@{/login}" th:if="${username == null}" >Login</a></li>
+        <li><a th:href="@{/target}">Target Tabungan</a></li>
+        <li><a th:href="@{/promo}">Promo</a></li>
+    </ul>
+</nav>
+</body>
+</div>
+</html>
