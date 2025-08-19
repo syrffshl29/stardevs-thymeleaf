@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "transaction-service", url = "http://localhost:8080/transaksi")
+@FeignClient(name = "transaction-service", url = "http://localhost:8080")
 public interface TransactionService {
 
         /** Ambil semua transaksi */
@@ -26,7 +26,7 @@ public interface TransactionService {
                                         @PathVariable("id") Long id);
 
         /** Simpan transaksi baru */
-        @PostMapping("/save")
+        @PostMapping("/transaksi")
         ResponseEntity<Object> save(@RequestHeader("Authorization") String jwt,
                                     @RequestBody ValTransactionDto valTransactionDto);
 
@@ -40,4 +40,8 @@ public interface TransactionService {
         @DeleteMapping("/delete/{id}")
         ResponseEntity<Object> delete(@RequestHeader("Authorization") String jwt,
                                       @PathVariable("id") Long id);
+
+        @GetMapping("/target/{targetId}")
+        ResponseEntity<Object> findByTargetId(@RequestHeader("Authorization") String jwt,
+                                              @PathVariable("targetId") Long targetId);
     }

@@ -13,8 +13,8 @@
         <div th:if="${#fields.hasErrors('targetName')}" th:errors="*{targetName}"></div>
 
         <label>Nominal Target</label>
-        <input type="number" th:field="*{jumlahDataTarget}" placeholder="Nominal" required />
-        <div th:if="${#fields.hasErrors('jumlahDataTarget')}" th:errors="*{jumlahDataTarget}"></div>
+        <input type="number" th:field="*{hargaTarget}" placeholder="Nominal" required />
+        <div th:if="${#fields.hasErrors('jumlahDataTarget')}" th:errors="*{hargaTarget}"></div>
 
         <label>Deadline</label>
         <input type="date" th:field="*{tanggalSelesaiTarget}" required />

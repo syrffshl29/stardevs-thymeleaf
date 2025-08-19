@@ -53,7 +53,7 @@ public class AuthController {
             }
             GlobalFunction.getCaptchaLogin(loginDto);
             model.addAttribute("data", loginDto);
-            return "/target";
+            return "/auth/login";
         }
 
         // Password tetap raw karena akan diverifikasi oleh service / DB
@@ -84,7 +84,7 @@ public class AuthController {
 
         model.addAttribute("MENU_NAVBAR", menuNavBar);
         model.addAttribute("USR_NAME", username);
-        return "/target";
+        return "redirect:/target";
     }
 
     /** REGISTER */

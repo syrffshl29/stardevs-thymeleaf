@@ -1,5 +1,7 @@
 package org.example.stardevsthymeleaf.dto.response;
 
+import java.time.LocalDateTime;
+
 public class RespTransactionDto{
 
     private Long id;
@@ -10,6 +12,7 @@ public class RespTransactionDto{
     private String keterangan;
     private String username;
     private String targetName;
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
@@ -73,5 +76,13 @@ public class RespTransactionDto{
 
     public void setTargetName(String targetName) {
         this.targetName = targetName;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

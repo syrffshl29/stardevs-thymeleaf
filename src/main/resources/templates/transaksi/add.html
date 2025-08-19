@@ -10,10 +10,18 @@
 <div class="container">
     <h2 class="mb-4">Tambah Transaksi Baru</h2>
 
-    <form th:action="@{/transaksi}" th:object="${data}" method="post">
+    <form th:action="@{'/transaksi/add/' + ${data.targetTabunganId}}" method="post" th:object="${data}">
         <div class="mb-3">
             <label class="form-label">Username</label>
             <input type="text" th:field="*{username}" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Target ID</label>
+            <input type="text" th:field="*{targetTabunganId}" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Target ID</label>
+            <input type="text" th:field="*{userId}" class="form-control"/>
         </div>
         <div class="mb-3">
             <label class="form-label">Jenis Transaksi</label>

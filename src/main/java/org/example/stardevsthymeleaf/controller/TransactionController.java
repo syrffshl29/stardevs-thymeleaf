@@ -65,17 +65,31 @@ public class TransactionController {
     }
 
     /** Open form Add transaksi */
-    @GetMapping("/a")
-    public String openModalAdd(Model model, WebRequest request) {
+    @GetMapping("/add{id}")
+    public String openModalAdd(@PathVariable Long targetId, Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
 
-        model.addAttribute("data", new ValTransactionDto());
-        return "transaksi/add";
+        ValTransactionDto valDto = new ValTransactionDto();
+        valDto.setTargetTabunganId(targetId); // langsung isi targetId supaya form tahu targetnya
+        model.addAttribute("data", valDto);
+
+        return "transaksi/add"; // pakai template yang sama
+    }
+    @GetMapping("/add/{targetId}")
+    public String openModalAddWithTarget(@PathVariable Long targetId, Model model, WebRequest request) {
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
+
+        ValTransactionDto valDto = new ValTransactionDto();
+        valDto.setTargetTabunganId(targetId); // set targetId supaya form tahu targetnya
+        model.addAttribute("data", valDto);
+
+        return "transaksi/add"; // pakai template yang sama
     }
 
     /** Save transaksi baru */
-    @PostMapping
+    @PostMapping("/add/{targetId}")
     public String save(@Valid @ModelAttribute("data") ValTransactionDto valDto,
                        BindingResult bindingResult,
                        Model model,
@@ -91,7 +105,7 @@ public class TransactionController {
 
         try {
             transactionService.save(jwt, valDto);
-            return "redirect:/transaksi"; // redirect setelah save sukses
+            return "redirect:/target/detail/{targetId}"; // redirect setelah save sukses
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("data", valDto);

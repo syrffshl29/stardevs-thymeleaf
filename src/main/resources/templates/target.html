@@ -23,13 +23,17 @@
     <!-- Tabel daftar target -->
     <div th:each="target : ${targetList}" class ="card">
             <h3><strong th:text="${target.targetName}"></strong></h3>
-            <p><strong>Target :</strong> Rp <span th:text=" ${target.saldoTerkumpul}"></span></p>
-            <p><strong>Target :</strong> Rp <span th:text="${target.jumlahDataTarget}"></span></p>
+            <p><strong>Harga :</strong> Rp <span th:text=" ${target.hargaTarget}"></span></p>
+            <p><strong>Dana Terkumpul :</strong> Rp <span th:text="${target.danaTerkumpul}"></span></p>
+            <p><strong>Mulai :</strong> <span th:text=" ${target.tanggalMulaiTarget}"></span></p>
             <p><strong>Deadline :</strong> <span th:text=" ${target.tanggalSelesaiTarget}"></span></p>
             <p><strong>Deskripsi :</strong> <span th:text=" ${target.deskripsi}"></span></p>
             <p><strong>Status :</strong> <span th:text=" ${target.statusTarget}"></span></p>
             <p><strong>Progress :</strong> 25% (Rp 2.500.000)</p>
-            <button class="detail-btn ">Detail</button>
+            <a th:href="@{'/target/detail/' + ${target.id}}">
+                <button class="detail-btn">Detail</button>
+            </a>
+
     </div>
 </div>
 </body>

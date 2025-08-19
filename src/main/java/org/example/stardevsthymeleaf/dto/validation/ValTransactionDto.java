@@ -3,8 +3,8 @@ package org.example.stardevsthymeleaf.dto.validation;
 import java.time.LocalDateTime;
 
 public class ValTransactionDto {
-    private Long id;
 
+    private Long id;
     private String jenisTransaksi;
     private Double jumlahTransaksi;
     private String metodePembayaran;

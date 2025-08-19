@@ -1,17 +1,22 @@
 package org.example.stardevsthymeleaf.dto.response;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class RespDetailTargetDto {
 
     private Long id;
-    private Long targetId;
-    private Integer targetHarian;
-    private Integer targetMingguan;
-    private String strategiMenabung;
+    private String targetName;
+    private Double hargaTarget;
+    private LocalDate tanggalMulaiTarget;
+    private LocalDate tanggalSelesaiTarget;
+    private Double danaTerkumpul;
     private String catatan;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private Double progress;
+    private List<RespTransactionDto> transaksiList;
 
     public Long getId() {
         return id;
@@ -21,36 +26,44 @@ public class RespDetailTargetDto {
         this.id = id;
     }
 
-    public Long getTargetId() {
-        return targetId;
+    public String getTargetName() {
+        return targetName;
     }
 
-    public void setTargetId(Long targetId) {
-        this.targetId = targetId;
+    public void setTargetName(String targetName) {
+        this.targetName = targetName;
     }
 
-    public Integer getTargetHarian() {
-        return targetHarian;
+    public Double getHargaTarget() {
+        return hargaTarget;
     }
 
-    public void setTargetHarian(Integer targetHarian) {
-        this.targetHarian = targetHarian;
+    public void setHargaTarget(Double hargaTarget) {
+        this.hargaTarget = hargaTarget;
     }
 
-    public Integer getTargetMingguan() {
-        return targetMingguan;
+    public LocalDate getTanggalMulaiTarget() {
+        return tanggalMulaiTarget;
     }
 
-    public void setTargetMingguan(Integer targetMingguan) {
-        this.targetMingguan = targetMingguan;
+    public void setTanggalMulaiTarget(LocalDate tanggalMulaiTarget) {
+        this.tanggalMulaiTarget = tanggalMulaiTarget;
     }
 
-    public String getStrategiMenabung() {
-        return strategiMenabung;
+    public LocalDate getTanggalSelesaiTarget() {
+        return tanggalSelesaiTarget;
     }
 
-    public void setStrategiMenabung(String strategiMenabung) {
-        this.strategiMenabung = strategiMenabung;
+    public void setTanggalSelesaiTarget(LocalDate tanggalSelesaiTarget) {
+        this.tanggalSelesaiTarget = tanggalSelesaiTarget;
+    }
+
+    public Double getDanaTerkumpul() {
+        return danaTerkumpul;
+    }
+
+    public void setDanaTerkumpul(Double danaTerkumpul) {
+        this.danaTerkumpul = danaTerkumpul;
     }
 
     public String getCatatan() {
@@ -75,5 +88,21 @@ public class RespDetailTargetDto {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(Double progress) {
+        this.progress = progress;
+    }
+
+    public List<RespTransactionDto> getTransaksiList() {
+        return transaksiList;
+    }
+
+    public void setTransaksiList(List<RespTransactionDto> transaksiList) {
+        this.transaksiList = transaksiList;
     }
 }

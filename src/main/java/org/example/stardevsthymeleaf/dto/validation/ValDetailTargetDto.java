@@ -1,13 +1,14 @@
 package org.example.stardevsthymeleaf.dto.validation;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ValDetailTargetDto {
     private Long id;
-    private Long targetId;
-    private Integer targetHarian;
-    private Integer targetMingguan;
-    private String strategiMenabung;
+    private Integer targetName;
+    private Double hargaTarget;
+    private LocalDate tanggalSelesaiTarget;
+    private Double danaTerkumpul;
     private String catatan;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -20,36 +21,36 @@ public class ValDetailTargetDto {
         this.id = id;
     }
 
-    public Long getTargetId() {
-        return targetId;
+    public Integer getTargetName() {
+        return targetName;
     }
 
-    public void setTargetId(Long targetId) {
-        this.targetId = targetId;
+    public void setTargetName(Integer targetName) {
+        this.targetName = targetName;
     }
 
-    public Integer getTargetHarian() {
-        return targetHarian;
+    public Double getHargaTarget() {
+        return hargaTarget;
     }
 
-    public void setTargetHarian(Integer targetHarian) {
-        this.targetHarian = targetHarian;
+    public void setHargaTarget(Double hargaTarget) {
+        this.hargaTarget = hargaTarget;
     }
 
-    public Integer getTargetMingguan() {
-        return targetMingguan;
+    public LocalDate getTanggalSelesaiTarget() {
+        return tanggalSelesaiTarget;
     }
 
-    public void setTargetMingguan(Integer targetMingguan) {
-        this.targetMingguan = targetMingguan;
+    public void setTanggalSelesaiTarget(LocalDate tanggalSelesaiTarget) {
+        this.tanggalSelesaiTarget = tanggalSelesaiTarget;
     }
 
-    public String getStrategiMenabung() {
-        return strategiMenabung;
+    public Double getDanaTerkumpul() {
+        return danaTerkumpul;
     }
 
-    public void setStrategiMenabung(String strategiMenabung) {
-        this.strategiMenabung = strategiMenabung;
+    public void setDanaTerkumpul(Double danaTerkumpul) {
+        this.danaTerkumpul = danaTerkumpul;
     }
 
     public String getCatatan() {
