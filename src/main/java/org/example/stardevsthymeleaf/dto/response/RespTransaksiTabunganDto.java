@@ -2,7 +2,7 @@ package org.example.stardevsthymeleaf.dto.response;
 
 import java.time.LocalDateTime;
 
-public class RespTransactionDto{
+public class RespTransaksiTabunganDto {
 
     private Long id;
     private String jenisTransaksi;

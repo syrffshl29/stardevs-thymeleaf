@@ -5,8 +5,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.validation.Valid;
-import org.example.stardevsthymeleaf.dto.response.RespTransactionDto;
+import org.example.stardevsthymeleaf.dto.response.RespTransaksiTabunganDto;
 import org.example.stardevsthymeleaf.dto.validation.ValTransactionDto;
+import org.example.stardevsthymeleaf.dto.validation.ValWithDrawDto;
 import org.example.stardevsthymeleaf.httpclient.TransactionService;
 import org.example.stardevsthymeleaf.utils.GlobalFunction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,12 +38,12 @@ public class TransactionController {
     }
 
     /** Helper untuk convert body response ke List */
-    private List<RespTransactionDto> mapToTransactionList(Object bodyData) {
+    private List<RespTransaksiTabunganDto> mapToTransactionList(Object bodyData) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        return mapper.convertValue(bodyData, new TypeReference<List<RespTransactionDto>>() {});
+        return mapper.convertValue(bodyData, new TypeReference<List<RespTransaksiTabunganDto>>() {});
     }
 
     /** Halaman utama transaksi */
@@ -53,9 +54,22 @@ public class TransactionController {
 
         try {
             ResponseEntity<Object> response = transactionService.findAll(jwt);
-            Map<String, Object> body = (Map<String, Object>) response.getBody();
-            List<RespTransactionDto> transaksiList = mapToTransactionList(body.get("data"));
-            model.addAttribute("transaksiList", transaksiList != null ? transaksiList : List.of());
+            Object bodyObj = response.getBody();
+
+            List<RespTransaksiTabunganDto> transaksiList = List.of(); // default kosong
+
+            if (bodyObj instanceof Map<?, ?> bodyMap) {
+                // Jika respons berupa objek dengan key "data"
+                Object data = bodyMap.get("data");
+                if (data != null) {
+                    transaksiList = convertToTransactionList(data);
+                }
+            } else if (bodyObj instanceof List<?>) {
+                // Jika respons langsung berupa list
+                transaksiList = convertToTransactionList(bodyObj);
+            }
+
+            model.addAttribute("transaksiList", transaksiList);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("transaksiList", List.of());
@@ -64,8 +78,20 @@ public class TransactionController {
         return "transaction";
     }
 
+    /**
+     * Helper untuk konversi objek menjadi List<RespTransaksiTabunganDto>
+     */
+    private List<RespTransaksiTabunganDto> convertToTransactionList(Object source) {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        return mapper.convertValue(source, new TypeReference<List<RespTransaksiTabunganDto>>() {});
+    }
+
+
     /** Open form Add transaksi */
-    @GetMapping("/add{id}")
+    @GetMapping("/add/{targetId}")
     public String openModalAdd(@PathVariable Long targetId, Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
@@ -76,16 +102,16 @@ public class TransactionController {
 
         return "transaksi/add"; // pakai template yang sama
     }
-    @GetMapping("/add/{targetId}")
+    @GetMapping("/withdraw/{targetId}")
     public String openModalAddWithTarget(@PathVariable Long targetId, Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
 
-        ValTransactionDto valDto = new ValTransactionDto();
+        ValWithDrawDto valDto = new ValWithDrawDto();
         valDto.setTargetTabunganId(targetId); // set targetId supaya form tahu targetnya
         model.addAttribute("data", valDto);
 
-        return "transaksi/add"; // pakai template yang sama
+        return "transaksi/withdraw"; // pakai template yang sama
     }
 
     /** Save transaksi baru */
@@ -111,8 +137,32 @@ public class TransactionController {
             model.addAttribute("data", valDto);
             return "transaksi/add";
         }
+
     }
 
+    @PostMapping("/withdraw/{targetId}")
+    public String withdraw(@Valid @ModelAttribute("data") ValWithDrawDto valDto,
+                           BindingResult bindingResult,
+                           Model model,
+                           WebRequest request) {
+
+        String jwt = extractJwt(request, model);
+        if (jwt == null) return "redirect:/";
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("data", valDto);
+            return "transaksi/withdraw";
+        }
+
+        try {
+            transactionService.withdraw(jwt, valDto);
+            return "redirect:/target/detail/{targetId}"; // redirect setelah save sukses
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("data", valDto);
+            return "transaksi/add";
+        }
+    }
     /** Open form Edit transaksi */
     @GetMapping("/e/{id}")
     public String openModalEdit(Model model, @PathVariable Long id, WebRequest request) {

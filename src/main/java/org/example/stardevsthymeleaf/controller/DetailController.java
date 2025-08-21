@@ -4,8 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.example.stardevsthymeleaf.dto.response.RespDetailTargetDto;
 import org.example.stardevsthymeleaf.dto.response.RespTargetTabunganDto;
-import org.example.stardevsthymeleaf.dto.response.RespTransactionDto;
+import org.example.stardevsthymeleaf.dto.response.RespTransaksiTabunganDto;
+import org.example.stardevsthymeleaf.httpclient.DetailService;
 import org.example.stardevsthymeleaf.httpclient.TargetService;
 import org.example.stardevsthymeleaf.httpclient.TransactionService;
 import org.example.stardevsthymeleaf.utils.GlobalFunction;
@@ -24,7 +26,7 @@ import java.util.Map;
 public class DetailController {
 
     @Autowired
-    private TargetService targetService;
+    private DetailService detailService;
 
     @Autowired
     private TransactionService transactionService;
@@ -41,32 +43,32 @@ public class DetailController {
     }
 
     /** Halaman detail target tabungan + riwayat transaksi */
-    @GetMapping("/{id}")
-    public String detail(@PathVariable Long id, Model model, WebRequest request) {
+    @GetMapping("/{targetId}")
+    public String findDetailTarget(@PathVariable Long targetId, Model model, WebRequest request) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/";
 
         try {
             // Ambil detail target tabungan
-            ResponseEntity<Object> responseTarget = targetService.findById(jwt, id);
+            ResponseEntity<Object> responseTarget = detailService.findDetailTarget(jwt, targetId);
             Map<String, Object> bodyTarget = (Map<String, Object>) responseTarget.getBody();
             if (bodyTarget == null || bodyTarget.get("data") == null) {
                 return "redirect:/target";
             }
             Map<String, Object> dataTarget = (Map<String, Object>) bodyTarget.get("data");
-            RespTargetTabunganDto targetDetail = mapper.convertValue(dataTarget, RespTargetTabunganDto.class);
+            RespDetailTargetDto targetDetail = mapper.convertValue(dataTarget, RespDetailTargetDto.class);
             model.addAttribute("target", targetDetail);
 
             // Ambil riwayat transaksi berdasarkan targetId
-            ResponseEntity<Object> responseTransaksi = transactionService.findByTargetId(jwt, id);
+            ResponseEntity<Object> responseTransaksi = transactionService.findByTargetId(jwt, targetId);
             Map<String, Object> bodyTransaksi = (Map<String, Object>) responseTransaksi.getBody();
             Object dataObj = bodyTransaksi.get("data");
-            List<RespTransactionDto> transaksiList;
+            List<RespTransaksiTabunganDto> transaksiList;
 
             if (dataObj instanceof List) {
-                transaksiList = mapper.convertValue(dataObj, new TypeReference<List<RespTransactionDto>>() {});
+                transaksiList = mapper.convertValue(dataObj, new TypeReference<List<RespTransaksiTabunganDto>>() {});
             } else if (dataObj instanceof Map) {
-                RespTransactionDto single = mapper.convertValue(dataObj, RespTransactionDto.class);
+                RespTransaksiTabunganDto single = mapper.convertValue(dataObj, RespTransaksiTabunganDto.class);
                 transaksiList = List.of(single);
             } else {
                 transaksiList = List.of(); // fallback kosong

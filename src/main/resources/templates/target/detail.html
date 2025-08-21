@@ -7,33 +7,32 @@
 <body>
 <div class="container-target-detail">
     <h2>Detail Target Tabungan</h2>
-    <h3 th:each=" target : ${target.targetName}"></h3>
-    <p><strong>Target :</strong> Rp <span th:text=" ${target.getDanaTerkumpul()}"></span></p>
+    <h3 th:text="${target.targetName}"></h3>
     <p><strong>Harga :</strong> Rp <span th:text="${target.hargaTarget}"></span></p>
-    <p><strong>Mulai :</strong> <span th:text=" ${target.tanggalMulaiTarget}"></span></p>
-    <p><strong>Deadline :</strong> <span th:text=" ${target.tanggalSelesaiTarget}"></span></p>
-    <p><strong>Deskripsi :</strong> <span th:text=" ${target.deskripsi}"></span></p>
-    <p><strong>Status :</strong> <span th:text=" ${target.statusTarget}"></span></p>
-    <p><strong>Progress :</strong> 25% (Rp 2.500.000)</p>
-    <a th:href="@{'/target/detail/' + ${target.id}}">
-        <button class="detail-btn">Detail</button>
-    </a>
+    <p><strong>Dana terkumpul :</strong> Rp <span th:text="${target.danaTerkumpul}"></span></p>
+    <p><strong>Mulai :</strong> <span th:text="${target.tanggalMulaiTarget}"></span></p>
+    <p><strong>Deadline :</strong> <span th:text="${target.tanggalSelesaiTarget}"></span></p>
+    <p><strong>Deskripsi :</strong> <span th:text="${target.catatan}"></span></p>
+    <p><strong>Status :</strong> <span> On Going </span></p>
+    <p><strong>Progress :</strong><span th:text="${target.progress}"></span> %</p>
+
     <div class="btn-group">
         <a th:href="@{'/transaksi/add/' + ${target.id}}" class="btn-success">Tambah Dana</a>
-        <a th:href="@{'/targets/withdraw-funds/' + ${target.id}}" class="btn-danger">Tarik Dana</a>
-        <a th:href="@{'/targets/edit/' + ${target.id}}" class="btn-warning">Edit Target</a>
-        <a th:href="@{'/targets/delete/' + ${target.id}}" class="btn-delete" onclick="return confirm('Yakin hapus target?');">Hapus Target</a>
+        <a th:href="@{'/transaksi/withdraw/' + ${target.id}}" class="btn-danger">Tarik Dana</a>
+        <a th:href="@{'/target/edit/' + ${target.id}}" class="btn-warning">Edit Target</a>
+        <a th:href="@{'/target/delete/' + ${target.id}}" class="btn-delete" onclick="return confirm('Yakin hapus target?');">Hapus Target</a>
     </div>
 
     <div class="transaction-history">
         <h4>Riwayat Transaksi</h4>
         <ul>
-            <li th:each="trx : ${transactions}">
-                <span th:text="${#dates.format(trx.tanggalTransaksi, 'dd-MM-yyyy')}"></span> -
-                Rp <span th:text="${#numbers.formatDecimal(trx.jumlahTransaksi, 0, 'COMMA', 0, 'POINT')}"></span> -
-                <span th:text="${trx.catatan}"></span>
+            <li th:each="tr : ${target.transaksiList}">
+                <span th:text="${tr.jenisTransaksi}"></span> -
+                <span th:text="${tr.jumlahTransaksi}"></span> -
+                <span th:text="${tr.metodePembayaran}"></span> -
+                <span th:text="${tr.statusTransaksi}"></span>
             </li>
-            <li th:if="${transactions == null or transactions.isEmpty()}">Belum ada transaksi.</li>
+            <li th:if="${#lists.isEmpty(transaksiList)}">Belum ada transaksi.</li>
         </ul>
     </div>
 </div>
