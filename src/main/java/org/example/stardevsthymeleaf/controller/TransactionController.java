@@ -185,7 +185,6 @@ public class TransactionController {
 
         return "transaksi/edit";
     }
-
     /** Update transaksi */
     @PostMapping("/{id}")
     public String edit(@Valid @ModelAttribute("data") ValTransactionDto valDto,

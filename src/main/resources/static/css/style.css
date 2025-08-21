@@ -628,6 +628,22 @@ h3.subtitle { /* Using subtitle for sub-heading */
 .btn-primary:hover {
     background-color: #1c5d84;
 }
+.btn-primary { /* Mapping btn-primary to btn-blue */
+    background-color: #2a85d7;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-primary:hover {
+    background-color: #1c5d84;
+}
 .badge {
     background-color: #e07800; /* Orange badge */
     color: white;

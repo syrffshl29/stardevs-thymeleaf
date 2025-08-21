@@ -29,7 +29,7 @@
             <p><strong>Deadline :</strong> <span th:text=" ${target.tanggalSelesaiTarget}"></span></p>
             <p><strong>Deskripsi :</strong> <span th:text=" ${target.deskripsi}"></span></p>
             <p><strong>Status :</strong> <span th:text=" ${target.statusTarget}"></span></p>
-            <p><strong>Progress :</strong> 25% (Rp 2.500.000)</p>
+            <p><strong>Progress :</strong> <span></span>%</p>
             <a th:href="@{'/target/detail/' + ${target.id}}">
                 <button class="detail-btn">Detail</button>
             </a>

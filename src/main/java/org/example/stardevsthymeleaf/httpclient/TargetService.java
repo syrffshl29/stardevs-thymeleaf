@@ -24,17 +24,4 @@ public interface TargetService {
     @GetMapping("/target/{id}")
     ResponseEntity<Object> findById(@RequestHeader("Authorization") String token,
                                     @PathVariable("id") Long id);
-
-    /** Update target tabungan */
-    @PutMapping("/target/{id}")
-    ResponseEntity<Object> update(@RequestHeader("Authorization") String token,
-                                  @PathVariable("id") Long id,
-                                  @RequestBody ValTargetTabunganDto dto);
-
-    /** Hapus target tabungan */
-    @DeleteMapping("/target/{id}")
-    ResponseEntity<Object> delete(@RequestHeader("Authorization") String token,
-                                  @PathVariable("id") Long id);
-
-
 }

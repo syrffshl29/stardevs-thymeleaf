@@ -49,8 +49,14 @@ public class RespDetailTargetDto {
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 
-    public Double getProgress() { return progress; }
-    public void setProgress(Double progress) { this.progress = progress; }
+    public Double getProgress() {
+        return this.danaTerkumpul != null && this.hargaTarget != null
+                ? (this.danaTerkumpul / this.hargaTarget) * 100
+                : 0;
+    }
+    public void setProgress(Double progress) {
+        this.progress = progress;
+    }
 
     public List<RespTransaksiTabunganDto> getTransaksiList() {
         return transaksiList;
