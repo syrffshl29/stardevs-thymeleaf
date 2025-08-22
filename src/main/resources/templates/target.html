@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Target Tabungan</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/sort.js}"></script>
 </head>
 <body>
 <div class="home-container">
@@ -32,12 +33,13 @@
              th:data-progress="${target.progress}">
             <h3><strong th:text="${target.targetName}"></strong></h3>
             <p><strong>Harga :</strong> Rp <span th:text="${target.hargaTarget}"></span></p>
-            <p><strong>Dana Terkumpul :</strong> Rp <span th:text="${target.danaTerkumpul}"></span></p>
-            <p><strong>Mulai :</strong> <span th:text="${target.tanggalMulaiTarget}"></span></p>
             <p><strong>Deadline :</strong> <span th:text="${target.tanggalSelesaiTarget}"></span></p>
             <p><strong>Deskripsi :</strong> <span th:text="${target.deskripsi}"></span></p>
-            <p><strong>Status :</strong> <span th:text="${target.statusTarget}"></span></p>
-            <p><strong>Progress :</strong> <span th:text="${target.progress}"></span>%</p>
+            <div class="jj-container">
+                <div class="jj-bar" th:style="'width:' + ${target.progress} + '%; background-color:' + (${target.progress} > 51 ? 'blue' : 'red')">
+                    <span th:text="${#numbers.formatDecimal(target.progress,1,2)} + '%'"></span>
+                </div>
+            </div>
             <a th:href="@{'/target/detail/' + ${target.id}}">
                 <button class="detail-btn">Detail</button>
             </a>

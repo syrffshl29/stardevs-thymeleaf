@@ -195,11 +195,6 @@ button, .btn {
     border: 1.5px solid #f2d884;
 }
 
-.progress-bar {
-    height: 100%;
-    background-color: #2a85d7;
-    transition: width 0.5s ease;
-}
 
 /* Teks progress warna merah (misal progress negatif) */
 .progress-red {
@@ -482,17 +477,19 @@ h1.page-title {
     font-size: 0.95rem;
     margin: 4px 0;
 }
-.progress-bar-container {
-    background-color: #ffd;
-    border-radius: 8px;
+
+.jj-container {
+    width: 100%;
+    background-color: #e0e0e0; /* warna latar belakang progress */
+    border-radius: 5px;
     overflow: hidden;
-    margin: 12px 0;
-    height: 18px;
-    border: 1.5px solid #f2d884;
 }
-.progress-bar {
-    height: 100%;
-    background-color: #2a85d7;
+
+.jj-bar {
+    height: 25px;
+    text-align: center;
+    color: white;
+    line-height: 25px;
     transition: width 0.5s ease;
 }
 h2.subtitle { /* Using subtitle class for consistency */
@@ -517,15 +514,7 @@ h2.subtitle { /* Using subtitle class for consistency */
     margin-top: 15px;
     margin-bottom: 25px;
 }
-.progress-bar-container { /* Reusing progress bar styles */
-    background-color: #ffd;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 18px;
-    border: 1.5px solid #f2d884;
-    flex-grow: 1; /* Allow progress bar to take available space */
-    margin-right: 10px;
-}
+
 .progress-bar { /* Reusing progress bar styles */
     height: 100%;
     background-color: #2a85d7;
@@ -606,6 +595,18 @@ h2.page-title { /* Using page-title for main heading */
     text-align: center;
     margin-bottom: 10px;
     font-weight: 700;
+}
+.special-label {
+    color: #3498db;  /* biru */
+    font-weight: bold; /* tebal */
+    font-size: 14px;  /* ukuran font */
+    margin-bottom: 5px; /* jarak bawah label */
+    display: block;   /* agar label berada di baris baru */
+}
+
+/* Tambahkan efek hover jika mau */
+.special-label:hover {
+    color: #2c3e50;
 }
 h3.subtitle { /* Using subtitle for sub-heading */
     color: #bf8b35;

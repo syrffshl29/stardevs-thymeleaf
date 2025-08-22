@@ -29,9 +29,8 @@
         <h4>Riwayat Transaksi</h4>
         <ul>
             <li th:each="tr : ${target.transaksiList}">
-                <span th:text="${tr.jenisTransaksi}"></span> -
-                <span th:text="${tr.jumlahTransaksi}"></span> -
-                <span th:text="${tr.metodePembayaran}"></span> -
+                <span th:text="${tr.jenisTransaksi}"></span> : Rp
+                <span th:text="${#numbers.formatDecimal (tr.jumlahTransaksi, 0,'COMMA',2,'POINT')}"></span> :
                 <span th:text="${tr.createdAt}">Tanggal</span>
             </li>
             <li th:if="${#lists.isEmpty(transaksiList)}">Belum ada transaksi.</li>
