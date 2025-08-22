@@ -9,32 +9,70 @@
 <div class="home-container">
     <h1 class="header">STAR DEVS</h1>
     <h2>Daftar Target Tabungan</h2>
-    <div class ="controls select">
-           <div class = "sorting">
-            <select>
-                <option>Nama</option>
-                <option>Progres</option>
+
+    <div class="sort-add">
+        <div class="sort-left">
+            <label id="sortLabel">Sort by:</label>
+            <select id="sortSelect" onchange="sortTargets(this.value)">
+                <option value="name-asc" th:selected="${sort=='targetName' && dir=='asc'}">Nama ▲</option>
+                <option value="name-desc" th:selected="${sort=='targetName' && dir=='desc'}">Nama ▼</option>
+                <option value="progress-asc" th:selected="${sort=='progress' && dir=='asc'}">Progress ▲</option>
+                <option value="progress-desc" th:selected="${sort=='progress' && dir=='desc'}">Progress ▼</option>
             </select>
-            <!-- Tombol tambah target baru -->
-            <a class="add-button" th:href="@{/target/a}">Tambah Target Baru></a>
-            <span class="badge">19</span>
-           </div>
+        </div>
+            <a class="btn-primary" th:href="@{/target/a}">Tambah Target</a>
+            <span class="badge" th:text="${#lists.size(targetList)}">0</span>
     </div>
-    <!-- Tabel daftar target -->
-    <div th:each="target : ${targetList}" class ="card">
+
+    <!-- Container kartu target -->
+    <div id="targetContainer">
+        <div th:each="target : ${targetList}"
+             class="card"
+             th:data-name="${target.targetName}"
+             th:data-progress="${target.progress}">
             <h3><strong th:text="${target.targetName}"></strong></h3>
-            <p><strong>Harga :</strong> Rp <span th:text=" ${target.hargaTarget}"></span></p>
+            <p><strong>Harga :</strong> Rp <span th:text="${target.hargaTarget}"></span></p>
             <p><strong>Dana Terkumpul :</strong> Rp <span th:text="${target.danaTerkumpul}"></span></p>
-            <p><strong>Mulai :</strong> <span th:text=" ${target.tanggalMulaiTarget}"></span></p>
-            <p><strong>Deadline :</strong> <span th:text=" ${target.tanggalSelesaiTarget}"></span></p>
-            <p><strong>Deskripsi :</strong> <span th:text=" ${target.deskripsi}"></span></p>
-            <p><strong>Status :</strong> <span th:text=" ${target.statusTarget}"></span></p>
-            <p><strong>Progress :</strong> <span></span>%</p>
+            <p><strong>Mulai :</strong> <span th:text="${target.tanggalMulaiTarget}"></span></p>
+            <p><strong>Deadline :</strong> <span th:text="${target.tanggalSelesaiTarget}"></span></p>
+            <p><strong>Deskripsi :</strong> <span th:text="${target.deskripsi}"></span></p>
+            <p><strong>Status :</strong> <span th:text="${target.statusTarget}"></span></p>
+            <p><strong>Progress :</strong> <span th:text="${target.progress}"></span>%</p>
             <a th:href="@{'/target/detail/' + ${target.id}}">
                 <button class="detail-btn">Detail</button>
             </a>
-
+        </div>
     </div>
 </div>
+
+<script>
+    function sortTargets(option) {
+        const container = document.getElementById("targetContainer");
+        const cards = Array.from(container.getElementsByClassName("card"));
+
+        cards.sort((a, b) => {
+            switch(option) {
+                case 'name-asc':
+                    return a.dataset.name.localeCompare(b.dataset.name);
+                case 'name-desc':
+                    return b.dataset.name.localeCompare(a.dataset.name);
+                case 'progress-asc':
+                    return parseFloat(b.dataset.progress) - parseFloat(a.dataset.progress);
+                case 'progress-desc':
+                    return parseFloat(a.dataset.progress) - parseFloat(b.dataset.progress);
+                default:
+                    return 0;
+            }
+        });
+
+        cards.forEach(card => container.appendChild(card));
+    }
+
+    // Default sort progress descending saat halaman load
+    window.onload = () => {
+        const defaultOption = document.getElementById("sortSelect").value;
+        sortTargets(defaultOption);
+    };
+</script>
 </body>
 </html>

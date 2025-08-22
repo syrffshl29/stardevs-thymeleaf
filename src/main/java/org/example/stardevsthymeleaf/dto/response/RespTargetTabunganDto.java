@@ -15,6 +15,7 @@ public class RespTargetTabunganDto {
     private String statusTarget;
     private Long userId;
     private String username;
+    private transient Double Progress;
 
     public Long getId() {
         return id;
@@ -102,5 +103,13 @@ public class RespTargetTabunganDto {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Double getProgress() {
+        return Progress;
+    }
+
+    public void setProgress(Double progress) {
+        this.Progress = progress;
     }
 }

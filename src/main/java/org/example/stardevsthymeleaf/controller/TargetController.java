@@ -18,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +53,12 @@ public class TargetController {
 
     /** Halaman utama target tabungan */
     @GetMapping
-    public String defaultPage(Model model, WebRequest request) {
+    public String defaultPage(
+            Model model,
+            WebRequest request,
+            @RequestParam(defaultValue = "targetName") String sort,
+            @RequestParam(defaultValue = "asc") String dir
+    ) {
         String jwt = extractJwt(request, model);
         if (jwt == null) return "redirect:/target";
 
@@ -60,14 +66,50 @@ public class TargetController {
             ResponseEntity<Object> response = targetService.findAll(jwt);
             Map<String, Object> body = (Map<String, Object>) response.getBody();
             List<RespTargetTabunganDto> targetList = mapToTargetList(body.get("data"));
+
+            if (targetList != null) {
+                // Hitung progress
+                targetList.forEach(target -> {
+                    double progress = 0;
+                    if (target.getDanaTerkumpul() != null && target.getHargaTarget() != null && target.getHargaTarget() > 0) {
+                        progress = target.getDanaTerkumpul() / target.getHargaTarget() * 100;
+                    }
+                    target.setProgress(progress);
+                });
+
+                // Sorting dinamis berdasarkan parameter 'sort' dan 'dir'
+                Comparator<RespTargetTabunganDto> comparator;
+                switch (sort) {
+                    case "progress":
+                        comparator = Comparator.comparing(RespTargetTabunganDto::getProgress);
+                        break;
+                    case "targetName":
+                    default:
+                        comparator = Comparator.comparing(RespTargetTabunganDto::getTargetName, String.CASE_INSENSITIVE_ORDER);
+                        break;
+                }
+
+                if ("desc".equalsIgnoreCase(dir)) {
+                    comparator = comparator.reversed();
+                }
+
+                targetList.sort(comparator);
+            }
+
             model.addAttribute("targetList", targetList != null ? targetList : List.of());
+            model.addAttribute("sort", sort);
+            model.addAttribute("dir", dir);
+
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("targetList", List.of());
+            model.addAttribute("sort", "targetName");
+            model.addAttribute("dir", "asc");
         }
 
         return "target";
     }
+
 
     /** Open form Add target tabungan */
     @GetMapping("/a")

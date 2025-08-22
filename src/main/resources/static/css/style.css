@@ -185,7 +185,6 @@ button, .btn {
 .saving-card .btn-detail:hover {
     background-color: #c16000;
 }
-
 /* Progress bar */
 .progress-bar-container {
     background-color: #ffd;
@@ -220,33 +219,35 @@ button, .btn {
     margin-top: 15px;
 }
 /* Sorting dan tombol */
-.controls {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center ;
-    margin-bottom: 15px;
-}
+/* Container controls: sejajar horizontal */
+
+
+/* Dropdown sorting */
 .controls select {
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-.controls .add-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 5px 20px;             /* Ruang dalam dropdown */
+    border-radius: 7px;            /* Sudut membulat */
+    border: 1px solid #ccc;        /* Warna border */
+    height: 30px;                  /* Tinggi dropdown */
+    font-size: 10px;               /* Ukuran teks */
+    cursor: pointer;               /* Pointer saat hover */
+    width: 120px;
 }
 
-.controls .badge {
-    background-color: #3498db;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 50%;
-    font-weight: bold;
+/* Tombol tambah target */
+.controls .add-button {
+    background-color: #3498db;     /* Warna latar tombol */
+    color: white;                  /* Warna teks */
+    border: none;                  /* Hilangkan border default */
+    padding: 5px 10px;             /* Ruang dalam tombol */
+    border-radius: 5px;            /* Sudut membulat */
+    cursor: pointer;               /* Pointer saat hover */
+    font-size: 14px;               /* Ukuran teks tombol */
+    text-decoration: none;         /* Hilangkan underline jika <a> */
 }
+
+/* Badge kecil (misal jumlah item) */
+
+
 
 /* Card target tabungan */
 .card {
@@ -283,28 +284,104 @@ button, .btn {
 
 /* Sorting & Add Data */
 .sort-add {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    display: flex;                     /* Gunakan flexbox agar elemen anak tersusun horizontal */
+    justify-content: space-between;    /* Elemen pertama ke kiri, elemen terakhir ke kanan */
+    align-items: center;               /* Vertikal sejajar di tengah */
+    margin-bottom: 20px;               /* Jarak ke elemen di bawah container */
+    padding: 15px;                     /* Jarak dalam container */
+    background-color: #fff8e1;         /* Warna latar container */
+    border-radius: 8px;                /* Sudut membulat */
+    border: 1.5px solid #f2d884;      /* Garis tepi container */
+}
+.sort-add .sort-left {
+    display: flex;           /* Susun label & select horizontal */
+    align-items: center;     /* Sejajar secara vertikal */
+    gap: 30px;               /* Jarak antar label dan dropdown */
 }
 
-.sort-add select {
-    max-width: 150px;
-}
-
-.sort-add .btn-add {
-    background-color: #2a85d7;
-    padding: 8px 16px;
-    border-radius: 7px;
-    color: white;
+/* Container utama untuk Sorting + Tombol Tambah + Badge */
+.sort-add label {
     font-weight: 600;
+    margin-right: 0px;
+    color: #1c5d84;
+    white-space: nowrap;
+}
+/* Dropdown Sorting di dalam .sort-add */
+.sort-add select {
+    max-width: 150px;                  /* Lebar maksimal dropdown */
+    padding: 10px 15px;
+    padding-right: 30px;               /* Jarak dalam dropdown */
+    border-radius: 7px;                /* Sudut membulat */
+    border: 1.5px solid #ddd3a0;       /* Garis tepi dropdown */
+    font-size: 1rem;                   /* Ukuran teks */
+    color: #555;                       /* Warna teks */
+    background-color: #fffef3;         /* Warna latar dropdown */
+    margin-top: 15px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* panah ke bawah */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* posisi di kanan */
+    background-size: 12px 12px;
+    appearance: none;
+    cursor: pointer;
+}
+/* Tombol Tambah di dalam .sort-add */
+.sort-add .btn-add {
+    background-color: #2a85d7;         /* Warna latar tombol biru */
+    padding: 10px 20px;                /* Jarak dalam tombol */
+    border-radius: 7px;                /* Sudut membulat */
+    color: white;                      /* Warna teks tombol */
+    font-weight: 600;                  /* Tebal teks tombol */
+    cursor: pointer;                   /* Kursor berubah pointer saat hover */
+    transition: background-color 0.3s ease; /* Efek halus saat hover */
+    font-size: 1rem;                   /* Ukuran teks */
+    text-decoration: none;             /* Hilangkan garis bawah (jika <a>) */
+    display: inline-block;             /* Agar tombol mengikuti ukuran isi */
+}
+
+/* Efek hover untuk tombol .btn-add */
+.sort-add .btn-add:hover {
+    background-color: #1c5d84;         /* Warna tombol saat mouse hover */
+}
+
+/* Badge untuk menampilkan jumlah target di dalam .sort-add */
+.sort-add .badge {
+    background-color: #3498db;         /* Warna latar badge */
+    color: white;                      /* Warna teks badge */
+    padding: 5px 10px;                 /* Ruang di dalam badge */
+    border-radius: 50%;                /* Membuat badge bulat */
+    font-weight: bold;                 /* Teks tebal */
+    display: inline-flex;              /* Agar teks di tengah secara vertikal dan horizontal */
+    align-items: center;               /* Vertikal tengah */
+    justify-content: center;           /* Horizontal tengah */
+    font-size: 12px;                   /* Ukuran teks lebih kecil */
+}
+.btn-primary { /* Mapping btn-primary to btn-blue */
+    background-color: #2a85d7;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
-
-.sort-add .btn-add:hover {
+.btn-primary:hover {
     background-color: #1c5d84;
+}
+.badge {
+    background-color: #e07800; /* Orange badge */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%; /* Circular badge */
+    font-size: 0.8rem;
+    font-weight: bold;
+    min-width: 20px; /* Ensure it's visible */
+    text-align: center;
+    display: inline-block;
+    line-height: 1.2;
 }
 
 /* Additional styles for Home page */
@@ -388,40 +465,6 @@ h1.page-title {
     margin-bottom: 30px;
     font-weight: 700;
 }
-.sort-add {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #fff8e1;
-    border-radius: 8px;
-    border: 1.5px solid #f2d884;
-}
-.sort-add select {
-    max-width: 150px;
-    padding: 10px 15px;
-    border-radius: 7px;
-    border: 1.5px solid #ddd3a0;
-    font-size: 1rem;
-    color: #555;
-    background-color: #fffef3;
-}
-.sort-add .btn-add {
-    background-color: #2a85d7;
-    padding: 10px 20px;
-    border-radius: 7px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-    text-decoration: none;
-    display: inline-block;
-}
-.sort-add .btn-add:hover {
-    background-color: #1c5d84;
-}
 .saving-card {
     background-color: #fff8e1;
     border-radius: 10px;
@@ -438,23 +481,6 @@ h1.page-title {
 .saving-card p {
     font-size: 0.95rem;
     margin: 4px 0;
-}
-.saving-card .btn-detail {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background-color: #e07800;
-    color: white;
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-.saving-card .btn-detail:hover {
-    background-color: #c16000;
 }
 .progress-bar-container {
     background-color: #ffd;
@@ -587,74 +613,6 @@ h3.subtitle { /* Using subtitle for sub-heading */
     font-size: 1.2rem;
     margin-bottom: 25px;
     text-align: center;
-}
-.sort-add { /* Reusing sort-add styles for the form */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #fff8e1;
-    border-radius: 8px;
-    border: 1.5px solid #f2d884;
-}
-.sort-add label {
-    font-weight: 600;
-    margin-right: 10px;
-    color: #1c5d84;
-}
-.sort-add select {
-    max-width: 150px;
-    padding: 10px 15px;
-    border-radius: 7px;
-    border: 1.5px solid #ddd3a0;
-    font-size: 1rem;
-    color: #555;
-    background-color: #fffef3;
-}
-.btn-primary { /* Mapping btn-primary to btn-blue */
-    background-color: #2a85d7;
-    color: white;
-    padding: 10px 20px;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 7px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn-primary:hover {
-    background-color: #1c5d84;
-}
-.btn-primary { /* Mapping btn-primary to btn-blue */
-    background-color: #2a85d7;
-    color: white;
-    padding: 10px 20px;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 7px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn-primary:hover {
-    background-color: #1c5d84;
-}
-.badge {
-    background-color: #e07800; /* Orange badge */
-    color: white;
-    padding: 5px 10px;
-    border-radius: 50%; /* Circular badge */
-    font-size: 0.8rem;
-    font-weight: bold;
-    min-width: 20px; /* Ensure it's visible */
-    text-align: center;
-    display: inline-block;
-    line-height: 1.2;
 }
 .target-cards {
     display: grid;
